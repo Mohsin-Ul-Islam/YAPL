@@ -24,7 +24,8 @@ tokens = [
     'IDENTIFIER',    # token for variable names
 
     'SEMICOLON',      # token for statement endings
-    'ASSIGN'        # token for assignment operator
+    'ASSIGN',        # token for assignment operator
+    'COMMA'
 
 ]
 
@@ -44,7 +45,12 @@ keywords = {
     'while'     : 'WHILE',
     'do'        : 'DO',
     'structure' : 'STRUCT',
-    'object'    : 'OBJECT'
+    'object'    : 'OBJECT',
+    'break'     : 'BREAK',
+    'skip'      : 'SKIP',
+    'log'       : 'LOG',
+    'subroutine' : 'FUNCTION',
+    'let'       : 'LET'
 }
 
 tokens += list(keywords.values())
@@ -53,6 +59,10 @@ tokens += list(keywords.values())
 ###########################################################
 ######### defining regular expressions for tokens #########
 ###########################################################
+
+def t_COMMA(token):
+    r','
+    return token
 
 # token specification for semi colon
 def t_SEMICOLON(token):
@@ -173,10 +183,9 @@ def t_error(token):
 ######### End of token specializations ####################
 ###########################################################
 
+lexer = lex.lex()
 
 def main():
-
-    lexer = lex.lex()
 
     while True:
 

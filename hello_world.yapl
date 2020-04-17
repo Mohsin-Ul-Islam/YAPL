@@ -1,0 +1,9 @@
+let number = 10;
+another = 19;
+put (number + 12) in some_number;
+
+
+if(number is 10 and another is 19)
+{
+  log("hello world");
+}
