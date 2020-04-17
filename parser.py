@@ -15,7 +15,10 @@ precedence = (
 # specifying grammar rules as single well defined functions
 def p_program(p):
     'program : statement_list'
-    p[0] = ProgramNode(p[1])
+    if not p[1]:
+        p[0] = NoOperationNode()
+    else:
+        p[0] = ProgramNode(p[1])
 
 def p_statement(p):
     '''
@@ -25,6 +28,8 @@ def p_statement(p):
                   | conditional_statement
                   | compound_statement
                   | print_statement
+                  | function_statement
+                  | function_call
     '''
     p[0] = StmntNode(p[1])
 
@@ -40,6 +45,24 @@ def p_statement_list(p):
     except:
         pass
 
+def p_function_call_empty(p):
+    'function_call : IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON'
+    p[0] = FunctionCallStmnt(p[1])
+
+def p_function_call(p):
+    'function_call : IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON'
+    p[0] = FunctionCallStmnt(p[1],p[3])
+
+def p_function_statement(p):
+    'function_statement : FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement'
+    routines[p[2]] = FunctionNode(p[2],p[4],p[6])
+    p[0] = NoOperationNode()
+
+def p_function_statement_empty(p):
+    'function_statement : FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement'
+    routines[p[2]] = FunctionNode(p[2],p[5])
+    p[0] = NoOperationNode()
+
 def p_conditional_statement_if_else(p):
     'conditional_statement : IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement'
     p[0] = ConditionalStmntNode(p[3],p[5],p[7])
@@ -48,9 +71,21 @@ def p_conditional_statement_if(p):
     'conditional_statement : IF LEFT_PAREN expression RIGHT_PAREN compound_statement'
     p[0] = ConditionalStmntNode(p[3],p[5])
 
+def p_iterative_statement_for(p):
+    'iterative_statement : FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement'
+    p[0] = IterativeForStmntNode(p[3],p[5],p[7])
+
+def p_iterative_statement_for_step(p):
+    'iterative_statement : FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement'
+    p[0] = IterativeForStmntNode(p[3],p[5],p[9],p[7])
+
+def p_iterative_statement_do_while(p):
+    'iterative_statement : DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN'
+    p[0] = IterativeDoWhileStmntNode(p[5],p[2])
+
 def p_iterative_statement_while(p):
     'iterative_statement : WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement'
-    p[0] = IterativeStmntNode(p[3],p[5])
+    p[0] = IterativeWhileStmntNode(p[3],p[5])
 
 def p_compound_statement(p):
     'compound_statement : LEFT_BRACE statement_list RIGHT_BRACE'
@@ -69,10 +104,16 @@ def p_statement_expression(p):
 ######### Print Statements ################################
 ###########################################################
 def p_statement_log(p):
-    'print_statement : LOG LEFT_PAREN expression RIGHT_PAREN SEMICOLON'
+    'print_statement : LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON'
     p[0] = PrintStmntNode(p[3])
 
+def p_arguments(p):
+    '''arguments   : expression COMMA arguments'''
+    p[0] = ArgumentsNode(p[1],p[3])
 
+def p_arguments_single(p):
+    'arguments : expression'
+    p[0] = ArgumentsNode(p[1])
 
 ###########################################################
 ######### Assignment Statements  ##########################
@@ -100,6 +141,34 @@ def p_expression_negative(p):
 def p_expression_not(p):
     'expression : NOT term'
     p[0] = ExpressionNode(p[2],'!')
+
+def p_expression_gte(p):
+    'expression : expression GTE term'
+    p[0] = ExpressionNode(p[1],'>=',p[3])
+
+def p_expression_lte(p):
+    'expression : expression LTE term'
+    p[0] = ExpressionNode(p[1],'<=',p[3])
+
+def p_expression_gt_descriptive(p):
+    'expression : expression IS GREATER THAN term'
+    p[0] = ExpressionNode(p[1],'>',p[5])
+
+def p_expression_lt_descriptive(p):
+    'expression : expression IS LESS THAN term'
+    p[0] = ExpressionNode(p[1],'<',p[5])
+
+def p_expression_gt(p):
+    'expression : expression GT term'
+    p[0] = ExpressionNode(p[1],'>',p[3])
+
+def p_expression_lt(p):
+    'expression : expression LT term'
+    p[0] = ExpressionNode(p[1],'<',p[3])
+
+def p_expression_equal_is(p):
+    'expression : expression IS term'
+    p[0] = ExpressionNode(p[1],'==',p[3])
 
 def p_expression_equal(p):
     'expression : expression EQUALS term'

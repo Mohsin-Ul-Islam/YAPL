@@ -1,4 +1,5 @@
 variables = {}
+routines  = {}
 
 class AST:
     pass
@@ -64,20 +65,44 @@ class ExpressionNode(AST):
 
         if not self.op:
             return self.left.visit()
+
         elif self.op == '!':
             return not self.left.visit()
+
         elif self.op == '-' and not self.right:
             return -self.left.visit()
+
+        # handles implicit string conversions during addition
         elif self.op == '+':
+            left  = self.left.visit()
+            right = self.right.visit()
+            if type(left) == str or type(right) == str:
+                return str(left) + str(right)
             return self.left.visit() + self.right.visit()
+
         elif self.op == '-':
             return self.left.visit() - self.right.visit()
+
         elif self.op == '&&':
             return self.left.visit() and self.right.visit()
+
         elif self.op == '||':
             return self.left.visit() or self.right.visit()
+
         elif self.op == '==':
             return self.left.visit() == self.right.visit()
+
+        elif self.op == '<=':
+            return self.left.visit() <= self.right.visit()
+
+        elif self.op == '>=':
+            return self.left.visit() >= self.right.visit()
+
+        elif self.op == '<':
+            return self.left.visit() < self.right.visit()
+
+        elif self.op == '>':
+            return self.left.visit() > self.right.visit()
 
 class AssignmentStmntNode(AST):
 
@@ -94,12 +119,29 @@ class AssignmentStmntNode(AST):
 
 class PrintStmntNode(AST):
 
-    def __init__(self,expression):
-        self.expression = expression
+    def __init__(self,arguments):
+        self.arguments = arguments
 
     def visit(self):
-        print(self.expression.visit())
+        result = ''
+        for arg in self.arguments.visit():
+            result += str(arg)
+        print(result)
         return True
+
+class ArgumentsNode(AST):
+
+    def __init__(self,arg,list = None):
+        self.arg  = arg
+        self.list = list
+
+    def visit(self):
+        rvalue = []
+        if self.arg:
+            rvalue = rvalue + [self.arg.visit()]
+        if self.list:
+            rvalue = rvalue + self.list.visit()
+        return rvalue
 
 class ExpressionStmntNode(AST):
 
@@ -109,7 +151,7 @@ class ExpressionStmntNode(AST):
     def visit(self):
         return self.expression.visit()
 
-class IterativeStmntNode(AST):
+class IterativeWhileStmntNode(AST):
 
     def __init__(self,condition,body):
 
@@ -120,6 +162,36 @@ class IterativeStmntNode(AST):
         rvalue = None
         while(self.condition.visit()):
             rvalue = self.body.visit()
+        return rvalue
+
+class IterativeDoWhileStmntNode(AST):
+
+    def __init__(self,condition,body):
+        self.condition = condition
+        self.body      = body
+
+    def visit(self):
+        rvalue = self.body.visit()
+        while self.condition.visit():
+            rvalue = self.body.visit()
+
+class IterativeForStmntNode(AST):
+
+    def __init__(self,start,end,body,step=None):
+        self.start = start
+        self.end   = end
+        self.body  = body
+        self.step  = step
+
+    def visit(self):
+        rvalue = None
+        if not self.step:
+            for i in range(self.start.visit(),self.end.visit()):
+                rvalue = self.body.visit()
+        else:
+            for i in range(self.start.visit(),self.end.visit(),self.step.visit()):
+                rvalue = self.body.visit()
+
         return rvalue
 
 class ConditionalStmntNode(AST):
@@ -142,6 +214,32 @@ class CompoundStmntNode(AST):
 
     def visit(self):
         return self.statement_list.visit()
+
+class FunctionNode(AST):
+
+    def __init__(self,name,body,arguments=None):
+        self.name      = name
+        self.arguments = arguments
+        self.body      = body
+
+    def visit(self,args=None):
+        return self.body.visit()
+
+class FunctionCallStmnt(AST):
+
+    def __init__(self,name,arguments = None):
+        self.name      = name
+        self.arguments = arguments
+
+    def visit(self):
+        if not routines[self.name]:
+            return False
+        elif self.arguments:
+            args = self.arguments.visit()
+            return routines[self.name].visit(args)
+        else:
+            return routines[self.name].visit()
+
 
 class StmntListNode(AST):
 
@@ -172,3 +270,11 @@ class ProgramNode(AST):
 
     def visit(self):
         return self.statement_list.visit()
+
+class NoOperationNode(AST):
+
+    def __init__(self):
+        pass
+
+    def visit(self):
+        pass

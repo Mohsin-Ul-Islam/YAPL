@@ -25,7 +25,12 @@ tokens = [
 
     'SEMICOLON',      # token for statement endings
     'ASSIGN',        # token for assignment operator
-    'COMMA'
+    'COMMA',
+    'LT',
+    'GT',
+    'LTE',
+    'GTE',
+    'EQUALS'
 
 ]
 
@@ -36,12 +41,13 @@ keywords = {
     'and'       : 'AND',       # logical AND
     'or'        : 'OR',        # logical OR
     'not'       : 'NOT',       # logical NOT
-    'is'        : 'EQUALS',    # equality
-    'equals'    : 'EQUALS',    # equality
-    'return'    : 'RETURN',     # returning values
+    'is'        : 'IS',        # equality
+    'return'    : 'RETURN',    # returning values
     'in'        : 'IN',
     'put'       : 'PUT',
     'for'       : 'FOR',
+    'to'        : 'TO',
+    'step'      : 'STEP',
     'while'     : 'WHILE',
     'do'        : 'DO',
     'structure' : 'STRUCT',
@@ -50,7 +56,10 @@ keywords = {
     'skip'      : 'SKIP',
     'log'       : 'LOG',
     'subroutine' : 'FUNCTION',
-    'let'       : 'LET'
+    'let'       : 'LET',
+    'less'      : 'LESS',
+    'greater'   : 'GREATER',
+    'than'      : 'THAN'
 }
 
 tokens += list(keywords.values())
@@ -59,6 +68,21 @@ tokens += list(keywords.values())
 ###########################################################
 ######### defining regular expressions for tokens #########
 ###########################################################
+def t_GTE(token):
+    r'>='
+    return token
+
+def t_LTE(token):
+    r'<='
+    return token
+
+def t_GT(token):
+    r'>'
+    return token
+
+def t_LT(token):
+    r'<'
+    return token
 
 def t_COMMA(token):
     r','
@@ -154,7 +178,7 @@ def t_INTEGER(token):
 
 # token specification for strings
 def t_STRING(token):
-    r'".*"'
+    r'["]([^"\\\n]|\\.|\\\n)*["]'
     token.value = str(token.value)
     token.value = token.value[1:-1]
     return token
