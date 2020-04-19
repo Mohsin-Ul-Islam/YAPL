@@ -3,6 +3,14 @@ import Nodes.Expression
 ###########################################################
 ######### Expressions #####################################
 ###########################################################
+def p_expression_inc(p):
+    'expression : IDENTIFIER INCREMENT'
+    p[0] = Nodes.Expression.Node(p[1],'++')
+
+def p_expression_dec(p):
+    'expression : IDENTIFIER DECREMENT'
+    p[0] = Nodes.Expression.Node(p[1],'--')
+
 def p_expression_negative(p):
     'expression : MINUS term'
     p[0] = Nodes.Expression.Node(p[2],'-')

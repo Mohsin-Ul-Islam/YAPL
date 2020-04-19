@@ -30,7 +30,9 @@ tokens = [
     'GT',
     'LTE',
     'GTE',
-    'EQUALS'
+    'EQUALS',
+    'INCREMENT',
+    'DECREMENT'
 
 ]
 
@@ -73,6 +75,14 @@ tokens += list(keywords.values())
 ###########################################################
 ######### defining regular expressions for tokens #########
 ###########################################################
+def t_INCREMENT(token):
+    r'\+\+'
+    return token
+
+def t_DECREMENT(token):
+    r'--'
+    return token
+
 def t_GTE(token):
     r'>='
     return token
@@ -120,7 +130,7 @@ def t_EQUALS(token):
 
 # token specification for assignment operator '='
 def t_ASSIGN(token):
-    r'='
+    r'(\+=)|(-=)|(\*=)|(\/=)|(=)'
     return token
 
 

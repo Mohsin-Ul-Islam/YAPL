@@ -1,4 +1,5 @@
 # expressions node
+from Nodes.Symbols import variables
 
 class Node:
 
@@ -17,6 +18,14 @@ class Node:
 
         elif self.op == '-' and not self.right:
             return -self.left.visit()
+
+        elif self.op == '++':
+            variables.set(self.left,variables.get(self.left) + 1)
+            return variables.get(self.left)
+
+        elif self.op == '--':
+            variables.set(self.left,variables.get(self.left) - 1)
+            return variables.get(self.left)
 
         # handles implicit string conversions during addition
         elif self.op == '+':

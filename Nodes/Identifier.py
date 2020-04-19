@@ -1,3 +1,5 @@
+from Nodes.Symbols import variables
+
 # variable node
 class Node:
 
@@ -5,8 +7,5 @@ class Node:
         self.name = name
 
     def visit(self):
-        value = variables.get(self.name,None)
-        if not value:
-            return 0
-        else:
-            return value
+        value = variables.get(self.name)
+        return value

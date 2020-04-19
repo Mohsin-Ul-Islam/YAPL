@@ -1,4 +1,5 @@
 import Nodes.Statements.Compound
+import Nodes.NoOperation
 
 def p_compound_statement(p):
     'compound_statement : LEFT_BRACE statement_list RIGHT_BRACE'

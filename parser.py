@@ -6,10 +6,16 @@ from lexer import tokens
 # precedence rules
 
 precedence = (
+    ('left','COMMA'),
+    ('right','ASSIGN'),
+    ('left','OR'),
+    ('left','AND'),
+    ('left','EQUALS'),
+    ('left','LT','LTE','GT','GTE'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'PRODUCT', 'DIVIDE'),
-    ('left', 'AND', 'OR'),
-    ('right', 'NOT')
+    ('right', 'NOT'),
+    ('right','INCREMENT','DECREMENT')
 )
 
 
@@ -17,6 +23,8 @@ precedence = (
 from Productions.Statements.Declaration         import *
 from Productions.Statements.Type                import *
 '''
+
+# importing grammar rules -- productions
 
 from Productions.Program                        import *
 from Productions.Statements.Generic             import *
