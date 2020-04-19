@@ -59,7 +59,12 @@ keywords = {
     'let'       : 'LET',
     'less'      : 'LESS',
     'greater'   : 'GREATER',
-    'than'      : 'THAN'
+    'than'      : 'THAN',
+    'int'       : 'TYPE_INT',
+    'char'      : 'TYPE_CHAR',
+    'double'    : 'TYPE_DOUBLE',
+    'string'    : 'TYPE_STRING',
+    'bool'      : 'TYPE_BOOL'
 }
 
 tokens += list(keywords.values())
@@ -213,7 +218,7 @@ def main():
 
     while True:
 
-        code = input('yapl >> ')
+        code = input('yapl >>> ')
         if(code == 'quit' or code == 'exit'):
             break
         lexer.input(code)

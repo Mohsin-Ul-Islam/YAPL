@@ -8,130 +8,3232 @@ Unused terminals:
     RETURN
     SKIP
     STRUCT
+    TYPE_BOOL
+    TYPE_CHAR
+    TYPE_DOUBLE
+    TYPE_INT
+    TYPE_STRING
 
 Grammar
 
 Rule 0     S' -> program
-Rule 1     program -> statement_list
-Rule 2     statement -> assignment_statement
-Rule 3     statement -> expression_statement
-Rule 4     statement -> iterative_statement
-Rule 5     statement -> conditional_statement
-Rule 6     statement -> compound_statement
-Rule 7     statement -> print_statement
-Rule 8     statement -> function_statement
-Rule 9     statement -> function_call
-Rule 10    statement_list -> statement statement_list
-Rule 11    statement_list -> <empty>
-Rule 12    function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
-Rule 13    function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-Rule 14    function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
-Rule 15    function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
-Rule 16    conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
-Rule 17    conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement
-Rule 18    iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
-Rule 19    iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement
-Rule 20    iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-Rule 21    iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
-Rule 22    compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE
-Rule 23    expression_statement -> expression SEMICOLON
-Rule 24    expression_statement -> SEMICOLON
-Rule 25    print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-Rule 26    arguments -> expression COMMA arguments
+Rule 1     arguments -> expression COMMA arguments
+Rule 2     function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+Rule 3     assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON
+Rule 4     compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE
+Rule 5     conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+Rule 6     expression_statement -> expression SEMICOLON
+Rule 7     expression_statement -> SEMICOLON
+Rule 8     statement -> assignment_statement
+Rule 9     statement -> expression_statement
+Rule 10    statement -> iterative_statement
+Rule 11    statement -> conditional_statement
+Rule 12    statement -> compound_statement
+Rule 13    statement -> print_statement
+Rule 14    statement -> function_statement
+Rule 15    statement -> function_call
+Rule 16    iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+Rule 17    iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
+Rule 18    iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+Rule 19    statement_list -> statement statement_list
+Rule 20    statement_list -> <empty>
+Rule 21    print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+Rule 22    function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
+Rule 23    program -> statement_list
+Rule 24    expression -> MINUS term
+Rule 25    factor -> literal
+Rule 26    term -> term PRODUCT factor
 Rule 27    arguments -> expression
-Rule 28    assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON
+Rule 28    function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
 Rule 29    assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON
-Rule 30    assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON
-Rule 31    expression -> MINUS term
-Rule 32    expression -> NOT term
-Rule 33    expression -> expression GTE term
-Rule 34    expression -> expression LTE term
-Rule 35    expression -> expression IS GREATER THAN term
-Rule 36    expression -> expression IS LESS THAN term
-Rule 37    expression -> expression GT term
-Rule 38    expression -> expression LT term
-Rule 39    expression -> expression IS term
-Rule 40    expression -> expression EQUALS term
-Rule 41    expression -> expression OR term
-Rule 42    expression -> expression AND term
-Rule 43    expression -> expression PLUS term
-Rule 44    expression -> expression MINUS term
-Rule 45    expression -> term
-Rule 46    term -> term PRODUCT factor
-Rule 47    term -> term DIVIDE factor
-Rule 48    term -> factor
-Rule 49    factor -> literal
-Rule 50    factor -> LEFT_PAREN expression RIGHT_PAREN
-Rule 51    literal -> IDENTIFIER
-Rule 52    literal -> DOUBLE
-Rule 53    literal -> INTEGER
-Rule 54    literal -> STRING
+Rule 30    conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement
+Rule 31    iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement
+Rule 32    literal -> IDENTIFIER
+Rule 33    function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
+Rule 34    expression -> NOT term
+Rule 35    factor -> LEFT_PAREN expression RIGHT_PAREN
+Rule 36    term -> term DIVIDE factor
+Rule 37    assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON
+Rule 38    literal -> DOUBLE
+Rule 39    literal -> INTEGER
+Rule 40    literal -> STRING
+Rule 41    expression -> expression GTE term
+Rule 42    term -> factor
+Rule 43    expression -> expression LTE term
+Rule 44    expression -> expression IS GREATER THAN term
+Rule 45    expression -> expression IS LESS THAN term
+Rule 46    expression -> expression GT term
+Rule 47    expression -> expression LT term
+Rule 48    expression -> expression IS term
+Rule 49    expression -> expression EQUALS term
+Rule 50    expression -> expression OR term
+Rule 51    expression -> expression AND term
+Rule 52    expression -> expression PLUS term
+Rule 53    expression -> expression MINUS term
+Rule 54    expression -> term
 
 Terminals, with rules where they appear
 
-AND                  : 42
-ASSIGN               : 29 30
+AND                  : 51
+ASSIGN               : 29 37
 BREAK                : 
-COMMA                : 26
-DIVIDE               : 47
-DO                   : 20
-DOUBLE               : 52
-ELSE                 : 16
-EQUALS               : 40
-FOR                  : 18 19
-FUNCTION             : 14 15
-GREATER              : 35
-GT                   : 37
-GTE                  : 33
-IDENTIFIER           : 12 13 14 15 28 29 30 51
-IF                   : 16 17
-IN                   : 28
-INTEGER              : 53
-IS                   : 35 36 39
-LEFT_BRACE           : 22
-LEFT_PAREN           : 12 13 14 15 16 17 18 19 20 21 25 50
-LESS                 : 36
-LET                  : 30
-LOG                  : 25
-LT                   : 38
-LTE                  : 34
-MINUS                : 31 44
+COMMA                : 1
+DIVIDE               : 36
+DO                   : 16
+DOUBLE               : 38
+ELSE                 : 5
+EQUALS               : 49
+FOR                  : 17 31
+FUNCTION             : 22 33
+GREATER              : 44
+GT                   : 46
+GTE                  : 41
+IDENTIFIER           : 2 3 22 28 29 32 33 37
+IF                   : 5 30
+IN                   : 3
+INTEGER              : 39
+IS                   : 44 45 48
+LEFT_BRACE           : 4
+LEFT_PAREN           : 2 5 16 17 18 21 22 28 30 31 33 35
+LESS                 : 45
+LET                  : 37
+LOG                  : 21
+LT                   : 47
+LTE                  : 43
+MINUS                : 24 53
 MODULUS              : 
-NOT                  : 32
+NOT                  : 34
 OBJECT               : 
-OR                   : 41
-PLUS                 : 43
-PRODUCT              : 46
-PUT                  : 28
+OR                   : 50
+PLUS                 : 52
+PRODUCT              : 26
+PUT                  : 3
 RETURN               : 
-RIGHT_BRACE          : 22
-RIGHT_PAREN          : 12 13 14 15 16 17 18 19 20 21 25 50
-SEMICOLON            : 12 13 23 24 25 28 29 30
+RIGHT_BRACE          : 4
+RIGHT_PAREN          : 2 5 16 17 18 21 22 28 30 31 33 35
+SEMICOLON            : 2 3 6 7 21 28 29 37
 SKIP                 : 
-STEP                 : 19
-STRING               : 54
+STEP                 : 31
+STRING               : 40
 STRUCT               : 
-THAN                 : 35 36
-TO                   : 18 19
-WHILE                : 20 21
+THAN                 : 44 45
+TO                   : 17 31
+TYPE_BOOL            : 
+TYPE_CHAR            : 
+TYPE_DOUBLE          : 
+TYPE_INT             : 
+TYPE_STRING          : 
+WHILE                : 16 18
 error                : 
 
 Nonterminals, with rules where they appear
 
-arguments            : 13 14 25 26
-assignment_statement : 2
-compound_statement   : 6 14 15 16 16 17 18 19 20 21
-conditional_statement : 5
-expression           : 16 17 18 18 19 19 19 20 21 23 26 27 28 29 30 33 34 35 36 37 38 39 40 41 42 43 44 50
-expression_statement : 3
-factor               : 46 47 48
-function_call        : 9
-function_statement   : 8
-iterative_statement  : 4
-literal              : 49
-print_statement      : 7
+arguments            : 1 21 22 28
+assignment_statement : 8
+compound_statement   : 5 5 12 16 17 18 22 30 31 33
+conditional_statement : 11
+expression           : 1 3 5 6 16 17 17 18 27 29 30 31 31 31 35 37 41 43 44 45 46 47 48 49 50 51 52 53
+expression_statement : 9
+factor               : 26 36 42
+function_call        : 15
+function_statement   : 14
+iterative_statement  : 10
+literal              : 25
+print_statement      : 13
 program              : 0
-statement            : 10
-statement_list       : 1 10 22
-term                 : 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
+statement            : 19
+statement_list       : 4 19 23
+term                 : 24 26 34 36 41 43 44 45 46 47 48 49 50 51 52 53 54
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (23) program -> . statement_list
+    (19) statement_list -> . statement statement_list
+    (20) statement_list -> .
+    (8) statement -> . assignment_statement
+    (9) statement -> . expression_statement
+    (10) statement -> . iterative_statement
+    (11) statement -> . conditional_statement
+    (12) statement -> . compound_statement
+    (13) statement -> . print_statement
+    (14) statement -> . function_statement
+    (15) statement -> . function_call
+    (3) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
+    (29) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (37) assignment_statement -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (6) expression_statement -> . expression SEMICOLON
+    (7) expression_statement -> . SEMICOLON
+    (16) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (17) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
+    (18) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement
+    (5) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (30) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+    (21) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (22) function_statement -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
+    (33) function_statement -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
+    (2) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (28) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    $end            reduce using rule 20 (statement_list -> .)
+    PUT             shift and go to state 12
+    IDENTIFIER      shift and go to state 14
+    LET             shift and go to state 16
+    SEMICOLON       shift and go to state 15
+    DO              shift and go to state 17
+    FOR             shift and go to state 20
+    WHILE           shift and go to state 18
+    IF              shift and go to state 21
+    LEFT_BRACE      shift and go to state 22
+    LOG             shift and go to state 23
+    FUNCTION        shift and go to state 24
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    assignment_statement           shift and go to state 4
+    expression_statement           shift and go to state 5
+    iterative_statement            shift and go to state 6
+    conditional_statement          shift and go to state 7
+    compound_statement             shift and go to state 8
+    print_statement                shift and go to state 9
+    function_statement             shift and go to state 10
+    function_call                  shift and go to state 11
+    expression                     shift and go to state 13
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (23) program -> statement_list .
+
+    $end            reduce using rule 23 (program -> statement_list .)
+
+
+state 3
+
+    (19) statement_list -> statement . statement_list
+    (19) statement_list -> . statement statement_list
+    (20) statement_list -> .
+    (8) statement -> . assignment_statement
+    (9) statement -> . expression_statement
+    (10) statement -> . iterative_statement
+    (11) statement -> . conditional_statement
+    (12) statement -> . compound_statement
+    (13) statement -> . print_statement
+    (14) statement -> . function_statement
+    (15) statement -> . function_call
+    (3) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
+    (29) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (37) assignment_statement -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (6) expression_statement -> . expression SEMICOLON
+    (7) expression_statement -> . SEMICOLON
+    (16) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (17) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
+    (18) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement
+    (5) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (30) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+    (21) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (22) function_statement -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
+    (33) function_statement -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
+    (2) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (28) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    $end            reduce using rule 20 (statement_list -> .)
+    RIGHT_BRACE     reduce using rule 20 (statement_list -> .)
+    PUT             shift and go to state 12
+    IDENTIFIER      shift and go to state 14
+    LET             shift and go to state 16
+    SEMICOLON       shift and go to state 15
+    DO              shift and go to state 17
+    FOR             shift and go to state 20
+    WHILE           shift and go to state 18
+    IF              shift and go to state 21
+    LEFT_BRACE      shift and go to state 22
+    LOG             shift and go to state 23
+    FUNCTION        shift and go to state 24
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    statement                      shift and go to state 3
+    statement_list                 shift and go to state 33
+    assignment_statement           shift and go to state 4
+    expression_statement           shift and go to state 5
+    iterative_statement            shift and go to state 6
+    conditional_statement          shift and go to state 7
+    compound_statement             shift and go to state 8
+    print_statement                shift and go to state 9
+    function_statement             shift and go to state 10
+    function_call                  shift and go to state 11
+    expression                     shift and go to state 13
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 4
+
+    (8) statement -> assignment_statement .
+
+    PUT             reduce using rule 8 (statement -> assignment_statement .)
+    IDENTIFIER      reduce using rule 8 (statement -> assignment_statement .)
+    LET             reduce using rule 8 (statement -> assignment_statement .)
+    SEMICOLON       reduce using rule 8 (statement -> assignment_statement .)
+    DO              reduce using rule 8 (statement -> assignment_statement .)
+    FOR             reduce using rule 8 (statement -> assignment_statement .)
+    WHILE           reduce using rule 8 (statement -> assignment_statement .)
+    IF              reduce using rule 8 (statement -> assignment_statement .)
+    LEFT_BRACE      reduce using rule 8 (statement -> assignment_statement .)
+    LOG             reduce using rule 8 (statement -> assignment_statement .)
+    FUNCTION        reduce using rule 8 (statement -> assignment_statement .)
+    MINUS           reduce using rule 8 (statement -> assignment_statement .)
+    NOT             reduce using rule 8 (statement -> assignment_statement .)
+    LEFT_PAREN      reduce using rule 8 (statement -> assignment_statement .)
+    DOUBLE          reduce using rule 8 (statement -> assignment_statement .)
+    INTEGER         reduce using rule 8 (statement -> assignment_statement .)
+    STRING          reduce using rule 8 (statement -> assignment_statement .)
+    $end            reduce using rule 8 (statement -> assignment_statement .)
+    RIGHT_BRACE     reduce using rule 8 (statement -> assignment_statement .)
+
+
+state 5
+
+    (9) statement -> expression_statement .
+
+    PUT             reduce using rule 9 (statement -> expression_statement .)
+    IDENTIFIER      reduce using rule 9 (statement -> expression_statement .)
+    LET             reduce using rule 9 (statement -> expression_statement .)
+    SEMICOLON       reduce using rule 9 (statement -> expression_statement .)
+    DO              reduce using rule 9 (statement -> expression_statement .)
+    FOR             reduce using rule 9 (statement -> expression_statement .)
+    WHILE           reduce using rule 9 (statement -> expression_statement .)
+    IF              reduce using rule 9 (statement -> expression_statement .)
+    LEFT_BRACE      reduce using rule 9 (statement -> expression_statement .)
+    LOG             reduce using rule 9 (statement -> expression_statement .)
+    FUNCTION        reduce using rule 9 (statement -> expression_statement .)
+    MINUS           reduce using rule 9 (statement -> expression_statement .)
+    NOT             reduce using rule 9 (statement -> expression_statement .)
+    LEFT_PAREN      reduce using rule 9 (statement -> expression_statement .)
+    DOUBLE          reduce using rule 9 (statement -> expression_statement .)
+    INTEGER         reduce using rule 9 (statement -> expression_statement .)
+    STRING          reduce using rule 9 (statement -> expression_statement .)
+    $end            reduce using rule 9 (statement -> expression_statement .)
+    RIGHT_BRACE     reduce using rule 9 (statement -> expression_statement .)
+
+
+state 6
+
+    (10) statement -> iterative_statement .
+
+    PUT             reduce using rule 10 (statement -> iterative_statement .)
+    IDENTIFIER      reduce using rule 10 (statement -> iterative_statement .)
+    LET             reduce using rule 10 (statement -> iterative_statement .)
+    SEMICOLON       reduce using rule 10 (statement -> iterative_statement .)
+    DO              reduce using rule 10 (statement -> iterative_statement .)
+    FOR             reduce using rule 10 (statement -> iterative_statement .)
+    WHILE           reduce using rule 10 (statement -> iterative_statement .)
+    IF              reduce using rule 10 (statement -> iterative_statement .)
+    LEFT_BRACE      reduce using rule 10 (statement -> iterative_statement .)
+    LOG             reduce using rule 10 (statement -> iterative_statement .)
+    FUNCTION        reduce using rule 10 (statement -> iterative_statement .)
+    MINUS           reduce using rule 10 (statement -> iterative_statement .)
+    NOT             reduce using rule 10 (statement -> iterative_statement .)
+    LEFT_PAREN      reduce using rule 10 (statement -> iterative_statement .)
+    DOUBLE          reduce using rule 10 (statement -> iterative_statement .)
+    INTEGER         reduce using rule 10 (statement -> iterative_statement .)
+    STRING          reduce using rule 10 (statement -> iterative_statement .)
+    $end            reduce using rule 10 (statement -> iterative_statement .)
+    RIGHT_BRACE     reduce using rule 10 (statement -> iterative_statement .)
+
+
+state 7
+
+    (11) statement -> conditional_statement .
+
+    PUT             reduce using rule 11 (statement -> conditional_statement .)
+    IDENTIFIER      reduce using rule 11 (statement -> conditional_statement .)
+    LET             reduce using rule 11 (statement -> conditional_statement .)
+    SEMICOLON       reduce using rule 11 (statement -> conditional_statement .)
+    DO              reduce using rule 11 (statement -> conditional_statement .)
+    FOR             reduce using rule 11 (statement -> conditional_statement .)
+    WHILE           reduce using rule 11 (statement -> conditional_statement .)
+    IF              reduce using rule 11 (statement -> conditional_statement .)
+    LEFT_BRACE      reduce using rule 11 (statement -> conditional_statement .)
+    LOG             reduce using rule 11 (statement -> conditional_statement .)
+    FUNCTION        reduce using rule 11 (statement -> conditional_statement .)
+    MINUS           reduce using rule 11 (statement -> conditional_statement .)
+    NOT             reduce using rule 11 (statement -> conditional_statement .)
+    LEFT_PAREN      reduce using rule 11 (statement -> conditional_statement .)
+    DOUBLE          reduce using rule 11 (statement -> conditional_statement .)
+    INTEGER         reduce using rule 11 (statement -> conditional_statement .)
+    STRING          reduce using rule 11 (statement -> conditional_statement .)
+    $end            reduce using rule 11 (statement -> conditional_statement .)
+    RIGHT_BRACE     reduce using rule 11 (statement -> conditional_statement .)
+
+
+state 8
+
+    (12) statement -> compound_statement .
+
+    PUT             reduce using rule 12 (statement -> compound_statement .)
+    IDENTIFIER      reduce using rule 12 (statement -> compound_statement .)
+    LET             reduce using rule 12 (statement -> compound_statement .)
+    SEMICOLON       reduce using rule 12 (statement -> compound_statement .)
+    DO              reduce using rule 12 (statement -> compound_statement .)
+    FOR             reduce using rule 12 (statement -> compound_statement .)
+    WHILE           reduce using rule 12 (statement -> compound_statement .)
+    IF              reduce using rule 12 (statement -> compound_statement .)
+    LEFT_BRACE      reduce using rule 12 (statement -> compound_statement .)
+    LOG             reduce using rule 12 (statement -> compound_statement .)
+    FUNCTION        reduce using rule 12 (statement -> compound_statement .)
+    MINUS           reduce using rule 12 (statement -> compound_statement .)
+    NOT             reduce using rule 12 (statement -> compound_statement .)
+    LEFT_PAREN      reduce using rule 12 (statement -> compound_statement .)
+    DOUBLE          reduce using rule 12 (statement -> compound_statement .)
+    INTEGER         reduce using rule 12 (statement -> compound_statement .)
+    STRING          reduce using rule 12 (statement -> compound_statement .)
+    $end            reduce using rule 12 (statement -> compound_statement .)
+    RIGHT_BRACE     reduce using rule 12 (statement -> compound_statement .)
+
+
+state 9
+
+    (13) statement -> print_statement .
+
+    PUT             reduce using rule 13 (statement -> print_statement .)
+    IDENTIFIER      reduce using rule 13 (statement -> print_statement .)
+    LET             reduce using rule 13 (statement -> print_statement .)
+    SEMICOLON       reduce using rule 13 (statement -> print_statement .)
+    DO              reduce using rule 13 (statement -> print_statement .)
+    FOR             reduce using rule 13 (statement -> print_statement .)
+    WHILE           reduce using rule 13 (statement -> print_statement .)
+    IF              reduce using rule 13 (statement -> print_statement .)
+    LEFT_BRACE      reduce using rule 13 (statement -> print_statement .)
+    LOG             reduce using rule 13 (statement -> print_statement .)
+    FUNCTION        reduce using rule 13 (statement -> print_statement .)
+    MINUS           reduce using rule 13 (statement -> print_statement .)
+    NOT             reduce using rule 13 (statement -> print_statement .)
+    LEFT_PAREN      reduce using rule 13 (statement -> print_statement .)
+    DOUBLE          reduce using rule 13 (statement -> print_statement .)
+    INTEGER         reduce using rule 13 (statement -> print_statement .)
+    STRING          reduce using rule 13 (statement -> print_statement .)
+    $end            reduce using rule 13 (statement -> print_statement .)
+    RIGHT_BRACE     reduce using rule 13 (statement -> print_statement .)
+
+
+state 10
+
+    (14) statement -> function_statement .
+
+    PUT             reduce using rule 14 (statement -> function_statement .)
+    IDENTIFIER      reduce using rule 14 (statement -> function_statement .)
+    LET             reduce using rule 14 (statement -> function_statement .)
+    SEMICOLON       reduce using rule 14 (statement -> function_statement .)
+    DO              reduce using rule 14 (statement -> function_statement .)
+    FOR             reduce using rule 14 (statement -> function_statement .)
+    WHILE           reduce using rule 14 (statement -> function_statement .)
+    IF              reduce using rule 14 (statement -> function_statement .)
+    LEFT_BRACE      reduce using rule 14 (statement -> function_statement .)
+    LOG             reduce using rule 14 (statement -> function_statement .)
+    FUNCTION        reduce using rule 14 (statement -> function_statement .)
+    MINUS           reduce using rule 14 (statement -> function_statement .)
+    NOT             reduce using rule 14 (statement -> function_statement .)
+    LEFT_PAREN      reduce using rule 14 (statement -> function_statement .)
+    DOUBLE          reduce using rule 14 (statement -> function_statement .)
+    INTEGER         reduce using rule 14 (statement -> function_statement .)
+    STRING          reduce using rule 14 (statement -> function_statement .)
+    $end            reduce using rule 14 (statement -> function_statement .)
+    RIGHT_BRACE     reduce using rule 14 (statement -> function_statement .)
+
+
+state 11
+
+    (15) statement -> function_call .
+
+    PUT             reduce using rule 15 (statement -> function_call .)
+    IDENTIFIER      reduce using rule 15 (statement -> function_call .)
+    LET             reduce using rule 15 (statement -> function_call .)
+    SEMICOLON       reduce using rule 15 (statement -> function_call .)
+    DO              reduce using rule 15 (statement -> function_call .)
+    FOR             reduce using rule 15 (statement -> function_call .)
+    WHILE           reduce using rule 15 (statement -> function_call .)
+    IF              reduce using rule 15 (statement -> function_call .)
+    LEFT_BRACE      reduce using rule 15 (statement -> function_call .)
+    LOG             reduce using rule 15 (statement -> function_call .)
+    FUNCTION        reduce using rule 15 (statement -> function_call .)
+    MINUS           reduce using rule 15 (statement -> function_call .)
+    NOT             reduce using rule 15 (statement -> function_call .)
+    LEFT_PAREN      reduce using rule 15 (statement -> function_call .)
+    DOUBLE          reduce using rule 15 (statement -> function_call .)
+    INTEGER         reduce using rule 15 (statement -> function_call .)
+    STRING          reduce using rule 15 (statement -> function_call .)
+    $end            reduce using rule 15 (statement -> function_call .)
+    RIGHT_BRACE     reduce using rule 15 (statement -> function_call .)
+
+
+state 12
+
+    (3) assignment_statement -> PUT . expression IN IDENTIFIER SEMICOLON
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 34
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 13
+
+    (6) expression_statement -> expression . SEMICOLON
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    SEMICOLON       shift and go to state 36
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 14
+
+    (29) assignment_statement -> IDENTIFIER . ASSIGN expression SEMICOLON
+    (2) function_call -> IDENTIFIER . LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (28) function_call -> IDENTIFIER . LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (32) literal -> IDENTIFIER .
+
+    ASSIGN          shift and go to state 47
+    LEFT_PAREN      shift and go to state 48
+    PRODUCT         reduce using rule 32 (literal -> IDENTIFIER .)
+    DIVIDE          reduce using rule 32 (literal -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 32 (literal -> IDENTIFIER .)
+    GTE             reduce using rule 32 (literal -> IDENTIFIER .)
+    LTE             reduce using rule 32 (literal -> IDENTIFIER .)
+    IS              reduce using rule 32 (literal -> IDENTIFIER .)
+    GT              reduce using rule 32 (literal -> IDENTIFIER .)
+    LT              reduce using rule 32 (literal -> IDENTIFIER .)
+    EQUALS          reduce using rule 32 (literal -> IDENTIFIER .)
+    OR              reduce using rule 32 (literal -> IDENTIFIER .)
+    AND             reduce using rule 32 (literal -> IDENTIFIER .)
+    PLUS            reduce using rule 32 (literal -> IDENTIFIER .)
+    MINUS           reduce using rule 32 (literal -> IDENTIFIER .)
+
+
+state 15
+
+    (7) expression_statement -> SEMICOLON .
+
+    PUT             reduce using rule 7 (expression_statement -> SEMICOLON .)
+    IDENTIFIER      reduce using rule 7 (expression_statement -> SEMICOLON .)
+    LET             reduce using rule 7 (expression_statement -> SEMICOLON .)
+    SEMICOLON       reduce using rule 7 (expression_statement -> SEMICOLON .)
+    DO              reduce using rule 7 (expression_statement -> SEMICOLON .)
+    FOR             reduce using rule 7 (expression_statement -> SEMICOLON .)
+    WHILE           reduce using rule 7 (expression_statement -> SEMICOLON .)
+    IF              reduce using rule 7 (expression_statement -> SEMICOLON .)
+    LEFT_BRACE      reduce using rule 7 (expression_statement -> SEMICOLON .)
+    LOG             reduce using rule 7 (expression_statement -> SEMICOLON .)
+    FUNCTION        reduce using rule 7 (expression_statement -> SEMICOLON .)
+    MINUS           reduce using rule 7 (expression_statement -> SEMICOLON .)
+    NOT             reduce using rule 7 (expression_statement -> SEMICOLON .)
+    LEFT_PAREN      reduce using rule 7 (expression_statement -> SEMICOLON .)
+    DOUBLE          reduce using rule 7 (expression_statement -> SEMICOLON .)
+    INTEGER         reduce using rule 7 (expression_statement -> SEMICOLON .)
+    STRING          reduce using rule 7 (expression_statement -> SEMICOLON .)
+    $end            reduce using rule 7 (expression_statement -> SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 7 (expression_statement -> SEMICOLON .)
+
+
+state 16
+
+    (37) assignment_statement -> LET . IDENTIFIER ASSIGN expression SEMICOLON
+
+    IDENTIFIER      shift and go to state 49
+
+
+state 17
+
+    (16) iterative_statement -> DO . compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 50
+
+state 18
+
+    (18) iterative_statement -> WHILE . LEFT_PAREN expression RIGHT_PAREN compound_statement
+
+    LEFT_PAREN      shift and go to state 51
+
+
+state 19
+
+    (35) factor -> LEFT_PAREN . expression RIGHT_PAREN
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 52
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 20
+
+    (17) iterative_statement -> FOR . LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> FOR . LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement
+
+    LEFT_PAREN      shift and go to state 53
+
+
+state 21
+
+    (5) conditional_statement -> IF . LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (30) conditional_statement -> IF . LEFT_PAREN expression RIGHT_PAREN compound_statement
+
+    LEFT_PAREN      shift and go to state 54
+
+
+state 22
+
+    (4) compound_statement -> LEFT_BRACE . statement_list RIGHT_BRACE
+    (19) statement_list -> . statement statement_list
+    (20) statement_list -> .
+    (8) statement -> . assignment_statement
+    (9) statement -> . expression_statement
+    (10) statement -> . iterative_statement
+    (11) statement -> . conditional_statement
+    (12) statement -> . compound_statement
+    (13) statement -> . print_statement
+    (14) statement -> . function_statement
+    (15) statement -> . function_call
+    (3) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
+    (29) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (37) assignment_statement -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (6) expression_statement -> . expression SEMICOLON
+    (7) expression_statement -> . SEMICOLON
+    (16) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (17) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
+    (18) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement
+    (5) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (30) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+    (21) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (22) function_statement -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
+    (33) function_statement -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
+    (2) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (28) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    RIGHT_BRACE     reduce using rule 20 (statement_list -> .)
+    PUT             shift and go to state 12
+    IDENTIFIER      shift and go to state 14
+    LET             shift and go to state 16
+    SEMICOLON       shift and go to state 15
+    DO              shift and go to state 17
+    FOR             shift and go to state 20
+    WHILE           shift and go to state 18
+    IF              shift and go to state 21
+    LEFT_BRACE      shift and go to state 22
+    LOG             shift and go to state 23
+    FUNCTION        shift and go to state 24
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    statement_list                 shift and go to state 55
+    statement                      shift and go to state 3
+    assignment_statement           shift and go to state 4
+    expression_statement           shift and go to state 5
+    iterative_statement            shift and go to state 6
+    conditional_statement          shift and go to state 7
+    compound_statement             shift and go to state 8
+    print_statement                shift and go to state 9
+    function_statement             shift and go to state 10
+    function_call                  shift and go to state 11
+    expression                     shift and go to state 13
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 23
+
+    (21) print_statement -> LOG . LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+
+    LEFT_PAREN      shift and go to state 56
+
+
+state 24
+
+    (22) function_statement -> FUNCTION . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
+    (33) function_statement -> FUNCTION . IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
+
+    IDENTIFIER      shift and go to state 57
+
+
+state 25
+
+    (24) expression -> MINUS . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 58
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 26
+
+    (54) expression -> term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 54 (expression -> term .)
+    GTE             reduce using rule 54 (expression -> term .)
+    LTE             reduce using rule 54 (expression -> term .)
+    IS              reduce using rule 54 (expression -> term .)
+    GT              reduce using rule 54 (expression -> term .)
+    LT              reduce using rule 54 (expression -> term .)
+    EQUALS          reduce using rule 54 (expression -> term .)
+    OR              reduce using rule 54 (expression -> term .)
+    AND             reduce using rule 54 (expression -> term .)
+    PLUS            reduce using rule 54 (expression -> term .)
+    MINUS           reduce using rule 54 (expression -> term .)
+    IN              reduce using rule 54 (expression -> term .)
+    RIGHT_PAREN     reduce using rule 54 (expression -> term .)
+    COMMA           reduce using rule 54 (expression -> term .)
+    TO              reduce using rule 54 (expression -> term .)
+    STEP            reduce using rule 54 (expression -> term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 27
+
+    (34) expression -> NOT . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 61
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 28
+
+    (42) term -> factor .
+
+    PRODUCT         reduce using rule 42 (term -> factor .)
+    DIVIDE          reduce using rule 42 (term -> factor .)
+    SEMICOLON       reduce using rule 42 (term -> factor .)
+    GTE             reduce using rule 42 (term -> factor .)
+    LTE             reduce using rule 42 (term -> factor .)
+    IS              reduce using rule 42 (term -> factor .)
+    GT              reduce using rule 42 (term -> factor .)
+    LT              reduce using rule 42 (term -> factor .)
+    EQUALS          reduce using rule 42 (term -> factor .)
+    OR              reduce using rule 42 (term -> factor .)
+    AND             reduce using rule 42 (term -> factor .)
+    PLUS            reduce using rule 42 (term -> factor .)
+    MINUS           reduce using rule 42 (term -> factor .)
+    IN              reduce using rule 42 (term -> factor .)
+    RIGHT_PAREN     reduce using rule 42 (term -> factor .)
+    COMMA           reduce using rule 42 (term -> factor .)
+    TO              reduce using rule 42 (term -> factor .)
+    STEP            reduce using rule 42 (term -> factor .)
+
+
+state 29
+
+    (25) factor -> literal .
+
+    PRODUCT         reduce using rule 25 (factor -> literal .)
+    DIVIDE          reduce using rule 25 (factor -> literal .)
+    SEMICOLON       reduce using rule 25 (factor -> literal .)
+    GTE             reduce using rule 25 (factor -> literal .)
+    LTE             reduce using rule 25 (factor -> literal .)
+    IS              reduce using rule 25 (factor -> literal .)
+    GT              reduce using rule 25 (factor -> literal .)
+    LT              reduce using rule 25 (factor -> literal .)
+    EQUALS          reduce using rule 25 (factor -> literal .)
+    OR              reduce using rule 25 (factor -> literal .)
+    AND             reduce using rule 25 (factor -> literal .)
+    PLUS            reduce using rule 25 (factor -> literal .)
+    MINUS           reduce using rule 25 (factor -> literal .)
+    IN              reduce using rule 25 (factor -> literal .)
+    RIGHT_PAREN     reduce using rule 25 (factor -> literal .)
+    COMMA           reduce using rule 25 (factor -> literal .)
+    TO              reduce using rule 25 (factor -> literal .)
+    STEP            reduce using rule 25 (factor -> literal .)
+
+
+state 30
+
+    (38) literal -> DOUBLE .
+
+    PRODUCT         reduce using rule 38 (literal -> DOUBLE .)
+    DIVIDE          reduce using rule 38 (literal -> DOUBLE .)
+    SEMICOLON       reduce using rule 38 (literal -> DOUBLE .)
+    GTE             reduce using rule 38 (literal -> DOUBLE .)
+    LTE             reduce using rule 38 (literal -> DOUBLE .)
+    IS              reduce using rule 38 (literal -> DOUBLE .)
+    GT              reduce using rule 38 (literal -> DOUBLE .)
+    LT              reduce using rule 38 (literal -> DOUBLE .)
+    EQUALS          reduce using rule 38 (literal -> DOUBLE .)
+    OR              reduce using rule 38 (literal -> DOUBLE .)
+    AND             reduce using rule 38 (literal -> DOUBLE .)
+    PLUS            reduce using rule 38 (literal -> DOUBLE .)
+    MINUS           reduce using rule 38 (literal -> DOUBLE .)
+    IN              reduce using rule 38 (literal -> DOUBLE .)
+    RIGHT_PAREN     reduce using rule 38 (literal -> DOUBLE .)
+    COMMA           reduce using rule 38 (literal -> DOUBLE .)
+    TO              reduce using rule 38 (literal -> DOUBLE .)
+    STEP            reduce using rule 38 (literal -> DOUBLE .)
+
+
+state 31
+
+    (39) literal -> INTEGER .
+
+    PRODUCT         reduce using rule 39 (literal -> INTEGER .)
+    DIVIDE          reduce using rule 39 (literal -> INTEGER .)
+    SEMICOLON       reduce using rule 39 (literal -> INTEGER .)
+    GTE             reduce using rule 39 (literal -> INTEGER .)
+    LTE             reduce using rule 39 (literal -> INTEGER .)
+    IS              reduce using rule 39 (literal -> INTEGER .)
+    GT              reduce using rule 39 (literal -> INTEGER .)
+    LT              reduce using rule 39 (literal -> INTEGER .)
+    EQUALS          reduce using rule 39 (literal -> INTEGER .)
+    OR              reduce using rule 39 (literal -> INTEGER .)
+    AND             reduce using rule 39 (literal -> INTEGER .)
+    PLUS            reduce using rule 39 (literal -> INTEGER .)
+    MINUS           reduce using rule 39 (literal -> INTEGER .)
+    IN              reduce using rule 39 (literal -> INTEGER .)
+    RIGHT_PAREN     reduce using rule 39 (literal -> INTEGER .)
+    COMMA           reduce using rule 39 (literal -> INTEGER .)
+    TO              reduce using rule 39 (literal -> INTEGER .)
+    STEP            reduce using rule 39 (literal -> INTEGER .)
+
+
+state 32
+
+    (40) literal -> STRING .
+
+    PRODUCT         reduce using rule 40 (literal -> STRING .)
+    DIVIDE          reduce using rule 40 (literal -> STRING .)
+    SEMICOLON       reduce using rule 40 (literal -> STRING .)
+    GTE             reduce using rule 40 (literal -> STRING .)
+    LTE             reduce using rule 40 (literal -> STRING .)
+    IS              reduce using rule 40 (literal -> STRING .)
+    GT              reduce using rule 40 (literal -> STRING .)
+    LT              reduce using rule 40 (literal -> STRING .)
+    EQUALS          reduce using rule 40 (literal -> STRING .)
+    OR              reduce using rule 40 (literal -> STRING .)
+    AND             reduce using rule 40 (literal -> STRING .)
+    PLUS            reduce using rule 40 (literal -> STRING .)
+    MINUS           reduce using rule 40 (literal -> STRING .)
+    IN              reduce using rule 40 (literal -> STRING .)
+    RIGHT_PAREN     reduce using rule 40 (literal -> STRING .)
+    COMMA           reduce using rule 40 (literal -> STRING .)
+    TO              reduce using rule 40 (literal -> STRING .)
+    STEP            reduce using rule 40 (literal -> STRING .)
+
+
+state 33
+
+    (19) statement_list -> statement statement_list .
+
+    $end            reduce using rule 19 (statement_list -> statement statement_list .)
+    RIGHT_BRACE     reduce using rule 19 (statement_list -> statement statement_list .)
+
+
+state 34
+
+    (3) assignment_statement -> PUT expression . IN IDENTIFIER SEMICOLON
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    IN              shift and go to state 62
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 35
+
+    (32) literal -> IDENTIFIER .
+
+    PRODUCT         reduce using rule 32 (literal -> IDENTIFIER .)
+    DIVIDE          reduce using rule 32 (literal -> IDENTIFIER .)
+    IN              reduce using rule 32 (literal -> IDENTIFIER .)
+    GTE             reduce using rule 32 (literal -> IDENTIFIER .)
+    LTE             reduce using rule 32 (literal -> IDENTIFIER .)
+    IS              reduce using rule 32 (literal -> IDENTIFIER .)
+    GT              reduce using rule 32 (literal -> IDENTIFIER .)
+    LT              reduce using rule 32 (literal -> IDENTIFIER .)
+    EQUALS          reduce using rule 32 (literal -> IDENTIFIER .)
+    OR              reduce using rule 32 (literal -> IDENTIFIER .)
+    AND             reduce using rule 32 (literal -> IDENTIFIER .)
+    PLUS            reduce using rule 32 (literal -> IDENTIFIER .)
+    MINUS           reduce using rule 32 (literal -> IDENTIFIER .)
+    RIGHT_PAREN     reduce using rule 32 (literal -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 32 (literal -> IDENTIFIER .)
+    COMMA           reduce using rule 32 (literal -> IDENTIFIER .)
+    TO              reduce using rule 32 (literal -> IDENTIFIER .)
+    STEP            reduce using rule 32 (literal -> IDENTIFIER .)
+
+
+state 36
+
+    (6) expression_statement -> expression SEMICOLON .
+
+    PUT             reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    LET             reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    SEMICOLON       reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    DO              reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    FOR             reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    IF              reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    LEFT_BRACE      reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    LOG             reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    FUNCTION        reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    MINUS           reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    NOT             reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    LEFT_PAREN      reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    DOUBLE          reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    INTEGER         reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    STRING          reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    $end            reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 6 (expression_statement -> expression SEMICOLON .)
+
+
+state 37
+
+    (41) expression -> expression GTE . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 63
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 38
+
+    (43) expression -> expression LTE . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 64
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 39
+
+    (44) expression -> expression IS . GREATER THAN term
+    (45) expression -> expression IS . LESS THAN term
+    (48) expression -> expression IS . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    GREATER         shift and go to state 65
+    LESS            shift and go to state 67
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 66
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 40
+
+    (46) expression -> expression GT . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 68
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 41
+
+    (47) expression -> expression LT . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 69
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 42
+
+    (49) expression -> expression EQUALS . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 70
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 43
+
+    (50) expression -> expression OR . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 71
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 44
+
+    (51) expression -> expression AND . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 72
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 45
+
+    (52) expression -> expression PLUS . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 73
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 46
+
+    (53) expression -> expression MINUS . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 74
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 47
+
+    (29) assignment_statement -> IDENTIFIER ASSIGN . expression SEMICOLON
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 75
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 48
+
+    (2) function_call -> IDENTIFIER LEFT_PAREN . RIGHT_PAREN SEMICOLON
+    (28) function_call -> IDENTIFIER LEFT_PAREN . arguments RIGHT_PAREN SEMICOLON
+    (1) arguments -> . expression COMMA arguments
+    (27) arguments -> . expression
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    RIGHT_PAREN     shift and go to state 76
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    arguments                      shift and go to state 77
+    expression                     shift and go to state 78
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 49
+
+    (37) assignment_statement -> LET IDENTIFIER . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 79
+
+
+state 50
+
+    (16) iterative_statement -> DO compound_statement . WHILE LEFT_PAREN expression RIGHT_PAREN
+
+    WHILE           shift and go to state 80
+
+
+state 51
+
+    (18) iterative_statement -> WHILE LEFT_PAREN . expression RIGHT_PAREN compound_statement
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 81
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 52
+
+    (35) factor -> LEFT_PAREN expression . RIGHT_PAREN
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    RIGHT_PAREN     shift and go to state 82
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 53
+
+    (17) iterative_statement -> FOR LEFT_PAREN . expression TO expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> FOR LEFT_PAREN . expression TO expression STEP expression RIGHT_PAREN compound_statement
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 83
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 54
+
+    (5) conditional_statement -> IF LEFT_PAREN . expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (30) conditional_statement -> IF LEFT_PAREN . expression RIGHT_PAREN compound_statement
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 84
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 55
+
+    (4) compound_statement -> LEFT_BRACE statement_list . RIGHT_BRACE
+
+    RIGHT_BRACE     shift and go to state 85
+
+
+state 56
+
+    (21) print_statement -> LOG LEFT_PAREN . arguments RIGHT_PAREN SEMICOLON
+    (1) arguments -> . expression COMMA arguments
+    (27) arguments -> . expression
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    arguments                      shift and go to state 86
+    expression                     shift and go to state 78
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 57
+
+    (22) function_statement -> FUNCTION IDENTIFIER . LEFT_PAREN arguments RIGHT_PAREN compound_statement
+    (33) function_statement -> FUNCTION IDENTIFIER . LEFT_PAREN RIGHT_PAREN compound_statement
+
+    LEFT_PAREN      shift and go to state 87
+
+
+state 58
+
+    (24) expression -> MINUS term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 24 (expression -> MINUS term .)
+    GTE             reduce using rule 24 (expression -> MINUS term .)
+    LTE             reduce using rule 24 (expression -> MINUS term .)
+    IS              reduce using rule 24 (expression -> MINUS term .)
+    GT              reduce using rule 24 (expression -> MINUS term .)
+    LT              reduce using rule 24 (expression -> MINUS term .)
+    EQUALS          reduce using rule 24 (expression -> MINUS term .)
+    OR              reduce using rule 24 (expression -> MINUS term .)
+    AND             reduce using rule 24 (expression -> MINUS term .)
+    PLUS            reduce using rule 24 (expression -> MINUS term .)
+    MINUS           reduce using rule 24 (expression -> MINUS term .)
+    IN              reduce using rule 24 (expression -> MINUS term .)
+    RIGHT_PAREN     reduce using rule 24 (expression -> MINUS term .)
+    COMMA           reduce using rule 24 (expression -> MINUS term .)
+    TO              reduce using rule 24 (expression -> MINUS term .)
+    STEP            reduce using rule 24 (expression -> MINUS term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 59
+
+    (26) term -> term PRODUCT . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    factor                         shift and go to state 88
+    literal                        shift and go to state 29
+
+state 60
+
+    (36) term -> term DIVIDE . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    factor                         shift and go to state 89
+    literal                        shift and go to state 29
+
+state 61
+
+    (34) expression -> NOT term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 34 (expression -> NOT term .)
+    GTE             reduce using rule 34 (expression -> NOT term .)
+    LTE             reduce using rule 34 (expression -> NOT term .)
+    IS              reduce using rule 34 (expression -> NOT term .)
+    GT              reduce using rule 34 (expression -> NOT term .)
+    LT              reduce using rule 34 (expression -> NOT term .)
+    EQUALS          reduce using rule 34 (expression -> NOT term .)
+    OR              reduce using rule 34 (expression -> NOT term .)
+    AND             reduce using rule 34 (expression -> NOT term .)
+    PLUS            reduce using rule 34 (expression -> NOT term .)
+    MINUS           reduce using rule 34 (expression -> NOT term .)
+    IN              reduce using rule 34 (expression -> NOT term .)
+    RIGHT_PAREN     reduce using rule 34 (expression -> NOT term .)
+    COMMA           reduce using rule 34 (expression -> NOT term .)
+    TO              reduce using rule 34 (expression -> NOT term .)
+    STEP            reduce using rule 34 (expression -> NOT term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 62
+
+    (3) assignment_statement -> PUT expression IN . IDENTIFIER SEMICOLON
+
+    IDENTIFIER      shift and go to state 90
+
+
+state 63
+
+    (41) expression -> expression GTE term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 41 (expression -> expression GTE term .)
+    GTE             reduce using rule 41 (expression -> expression GTE term .)
+    LTE             reduce using rule 41 (expression -> expression GTE term .)
+    IS              reduce using rule 41 (expression -> expression GTE term .)
+    GT              reduce using rule 41 (expression -> expression GTE term .)
+    LT              reduce using rule 41 (expression -> expression GTE term .)
+    EQUALS          reduce using rule 41 (expression -> expression GTE term .)
+    OR              reduce using rule 41 (expression -> expression GTE term .)
+    AND             reduce using rule 41 (expression -> expression GTE term .)
+    PLUS            reduce using rule 41 (expression -> expression GTE term .)
+    MINUS           reduce using rule 41 (expression -> expression GTE term .)
+    IN              reduce using rule 41 (expression -> expression GTE term .)
+    RIGHT_PAREN     reduce using rule 41 (expression -> expression GTE term .)
+    COMMA           reduce using rule 41 (expression -> expression GTE term .)
+    TO              reduce using rule 41 (expression -> expression GTE term .)
+    STEP            reduce using rule 41 (expression -> expression GTE term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 64
+
+    (43) expression -> expression LTE term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 43 (expression -> expression LTE term .)
+    GTE             reduce using rule 43 (expression -> expression LTE term .)
+    LTE             reduce using rule 43 (expression -> expression LTE term .)
+    IS              reduce using rule 43 (expression -> expression LTE term .)
+    GT              reduce using rule 43 (expression -> expression LTE term .)
+    LT              reduce using rule 43 (expression -> expression LTE term .)
+    EQUALS          reduce using rule 43 (expression -> expression LTE term .)
+    OR              reduce using rule 43 (expression -> expression LTE term .)
+    AND             reduce using rule 43 (expression -> expression LTE term .)
+    PLUS            reduce using rule 43 (expression -> expression LTE term .)
+    MINUS           reduce using rule 43 (expression -> expression LTE term .)
+    IN              reduce using rule 43 (expression -> expression LTE term .)
+    RIGHT_PAREN     reduce using rule 43 (expression -> expression LTE term .)
+    COMMA           reduce using rule 43 (expression -> expression LTE term .)
+    TO              reduce using rule 43 (expression -> expression LTE term .)
+    STEP            reduce using rule 43 (expression -> expression LTE term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 65
+
+    (44) expression -> expression IS GREATER . THAN term
+
+    THAN            shift and go to state 91
+
+
+state 66
+
+    (48) expression -> expression IS term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 48 (expression -> expression IS term .)
+    GTE             reduce using rule 48 (expression -> expression IS term .)
+    LTE             reduce using rule 48 (expression -> expression IS term .)
+    IS              reduce using rule 48 (expression -> expression IS term .)
+    GT              reduce using rule 48 (expression -> expression IS term .)
+    LT              reduce using rule 48 (expression -> expression IS term .)
+    EQUALS          reduce using rule 48 (expression -> expression IS term .)
+    OR              reduce using rule 48 (expression -> expression IS term .)
+    AND             reduce using rule 48 (expression -> expression IS term .)
+    PLUS            reduce using rule 48 (expression -> expression IS term .)
+    MINUS           reduce using rule 48 (expression -> expression IS term .)
+    IN              reduce using rule 48 (expression -> expression IS term .)
+    RIGHT_PAREN     reduce using rule 48 (expression -> expression IS term .)
+    COMMA           reduce using rule 48 (expression -> expression IS term .)
+    TO              reduce using rule 48 (expression -> expression IS term .)
+    STEP            reduce using rule 48 (expression -> expression IS term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 67
+
+    (45) expression -> expression IS LESS . THAN term
+
+    THAN            shift and go to state 92
+
+
+state 68
+
+    (46) expression -> expression GT term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 46 (expression -> expression GT term .)
+    GTE             reduce using rule 46 (expression -> expression GT term .)
+    LTE             reduce using rule 46 (expression -> expression GT term .)
+    IS              reduce using rule 46 (expression -> expression GT term .)
+    GT              reduce using rule 46 (expression -> expression GT term .)
+    LT              reduce using rule 46 (expression -> expression GT term .)
+    EQUALS          reduce using rule 46 (expression -> expression GT term .)
+    OR              reduce using rule 46 (expression -> expression GT term .)
+    AND             reduce using rule 46 (expression -> expression GT term .)
+    PLUS            reduce using rule 46 (expression -> expression GT term .)
+    MINUS           reduce using rule 46 (expression -> expression GT term .)
+    IN              reduce using rule 46 (expression -> expression GT term .)
+    RIGHT_PAREN     reduce using rule 46 (expression -> expression GT term .)
+    COMMA           reduce using rule 46 (expression -> expression GT term .)
+    TO              reduce using rule 46 (expression -> expression GT term .)
+    STEP            reduce using rule 46 (expression -> expression GT term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 69
+
+    (47) expression -> expression LT term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 47 (expression -> expression LT term .)
+    GTE             reduce using rule 47 (expression -> expression LT term .)
+    LTE             reduce using rule 47 (expression -> expression LT term .)
+    IS              reduce using rule 47 (expression -> expression LT term .)
+    GT              reduce using rule 47 (expression -> expression LT term .)
+    LT              reduce using rule 47 (expression -> expression LT term .)
+    EQUALS          reduce using rule 47 (expression -> expression LT term .)
+    OR              reduce using rule 47 (expression -> expression LT term .)
+    AND             reduce using rule 47 (expression -> expression LT term .)
+    PLUS            reduce using rule 47 (expression -> expression LT term .)
+    MINUS           reduce using rule 47 (expression -> expression LT term .)
+    IN              reduce using rule 47 (expression -> expression LT term .)
+    RIGHT_PAREN     reduce using rule 47 (expression -> expression LT term .)
+    COMMA           reduce using rule 47 (expression -> expression LT term .)
+    TO              reduce using rule 47 (expression -> expression LT term .)
+    STEP            reduce using rule 47 (expression -> expression LT term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 70
+
+    (49) expression -> expression EQUALS term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 49 (expression -> expression EQUALS term .)
+    GTE             reduce using rule 49 (expression -> expression EQUALS term .)
+    LTE             reduce using rule 49 (expression -> expression EQUALS term .)
+    IS              reduce using rule 49 (expression -> expression EQUALS term .)
+    GT              reduce using rule 49 (expression -> expression EQUALS term .)
+    LT              reduce using rule 49 (expression -> expression EQUALS term .)
+    EQUALS          reduce using rule 49 (expression -> expression EQUALS term .)
+    OR              reduce using rule 49 (expression -> expression EQUALS term .)
+    AND             reduce using rule 49 (expression -> expression EQUALS term .)
+    PLUS            reduce using rule 49 (expression -> expression EQUALS term .)
+    MINUS           reduce using rule 49 (expression -> expression EQUALS term .)
+    IN              reduce using rule 49 (expression -> expression EQUALS term .)
+    RIGHT_PAREN     reduce using rule 49 (expression -> expression EQUALS term .)
+    COMMA           reduce using rule 49 (expression -> expression EQUALS term .)
+    TO              reduce using rule 49 (expression -> expression EQUALS term .)
+    STEP            reduce using rule 49 (expression -> expression EQUALS term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 71
+
+    (50) expression -> expression OR term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 50 (expression -> expression OR term .)
+    GTE             reduce using rule 50 (expression -> expression OR term .)
+    LTE             reduce using rule 50 (expression -> expression OR term .)
+    IS              reduce using rule 50 (expression -> expression OR term .)
+    GT              reduce using rule 50 (expression -> expression OR term .)
+    LT              reduce using rule 50 (expression -> expression OR term .)
+    EQUALS          reduce using rule 50 (expression -> expression OR term .)
+    OR              reduce using rule 50 (expression -> expression OR term .)
+    AND             reduce using rule 50 (expression -> expression OR term .)
+    PLUS            reduce using rule 50 (expression -> expression OR term .)
+    MINUS           reduce using rule 50 (expression -> expression OR term .)
+    IN              reduce using rule 50 (expression -> expression OR term .)
+    RIGHT_PAREN     reduce using rule 50 (expression -> expression OR term .)
+    COMMA           reduce using rule 50 (expression -> expression OR term .)
+    TO              reduce using rule 50 (expression -> expression OR term .)
+    STEP            reduce using rule 50 (expression -> expression OR term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 72
+
+    (51) expression -> expression AND term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 51 (expression -> expression AND term .)
+    GTE             reduce using rule 51 (expression -> expression AND term .)
+    LTE             reduce using rule 51 (expression -> expression AND term .)
+    IS              reduce using rule 51 (expression -> expression AND term .)
+    GT              reduce using rule 51 (expression -> expression AND term .)
+    LT              reduce using rule 51 (expression -> expression AND term .)
+    EQUALS          reduce using rule 51 (expression -> expression AND term .)
+    OR              reduce using rule 51 (expression -> expression AND term .)
+    AND             reduce using rule 51 (expression -> expression AND term .)
+    PLUS            reduce using rule 51 (expression -> expression AND term .)
+    MINUS           reduce using rule 51 (expression -> expression AND term .)
+    IN              reduce using rule 51 (expression -> expression AND term .)
+    RIGHT_PAREN     reduce using rule 51 (expression -> expression AND term .)
+    COMMA           reduce using rule 51 (expression -> expression AND term .)
+    TO              reduce using rule 51 (expression -> expression AND term .)
+    STEP            reduce using rule 51 (expression -> expression AND term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 73
+
+    (52) expression -> expression PLUS term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 52 (expression -> expression PLUS term .)
+    GTE             reduce using rule 52 (expression -> expression PLUS term .)
+    LTE             reduce using rule 52 (expression -> expression PLUS term .)
+    IS              reduce using rule 52 (expression -> expression PLUS term .)
+    GT              reduce using rule 52 (expression -> expression PLUS term .)
+    LT              reduce using rule 52 (expression -> expression PLUS term .)
+    EQUALS          reduce using rule 52 (expression -> expression PLUS term .)
+    OR              reduce using rule 52 (expression -> expression PLUS term .)
+    AND             reduce using rule 52 (expression -> expression PLUS term .)
+    PLUS            reduce using rule 52 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 52 (expression -> expression PLUS term .)
+    IN              reduce using rule 52 (expression -> expression PLUS term .)
+    RIGHT_PAREN     reduce using rule 52 (expression -> expression PLUS term .)
+    COMMA           reduce using rule 52 (expression -> expression PLUS term .)
+    TO              reduce using rule 52 (expression -> expression PLUS term .)
+    STEP            reduce using rule 52 (expression -> expression PLUS term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 74
+
+    (53) expression -> expression MINUS term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 53 (expression -> expression MINUS term .)
+    GTE             reduce using rule 53 (expression -> expression MINUS term .)
+    LTE             reduce using rule 53 (expression -> expression MINUS term .)
+    IS              reduce using rule 53 (expression -> expression MINUS term .)
+    GT              reduce using rule 53 (expression -> expression MINUS term .)
+    LT              reduce using rule 53 (expression -> expression MINUS term .)
+    EQUALS          reduce using rule 53 (expression -> expression MINUS term .)
+    OR              reduce using rule 53 (expression -> expression MINUS term .)
+    AND             reduce using rule 53 (expression -> expression MINUS term .)
+    PLUS            reduce using rule 53 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 53 (expression -> expression MINUS term .)
+    IN              reduce using rule 53 (expression -> expression MINUS term .)
+    RIGHT_PAREN     reduce using rule 53 (expression -> expression MINUS term .)
+    COMMA           reduce using rule 53 (expression -> expression MINUS term .)
+    TO              reduce using rule 53 (expression -> expression MINUS term .)
+    STEP            reduce using rule 53 (expression -> expression MINUS term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 75
+
+    (29) assignment_statement -> IDENTIFIER ASSIGN expression . SEMICOLON
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    SEMICOLON       shift and go to state 93
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 76
+
+    (2) function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 94
+
+
+state 77
+
+    (28) function_call -> IDENTIFIER LEFT_PAREN arguments . RIGHT_PAREN SEMICOLON
+
+    RIGHT_PAREN     shift and go to state 95
+
+
+state 78
+
+    (1) arguments -> expression . COMMA arguments
+    (27) arguments -> expression .
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    COMMA           shift and go to state 96
+    RIGHT_PAREN     reduce using rule 27 (arguments -> expression .)
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 79
+
+    (37) assignment_statement -> LET IDENTIFIER ASSIGN . expression SEMICOLON
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 97
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 80
+
+    (16) iterative_statement -> DO compound_statement WHILE . LEFT_PAREN expression RIGHT_PAREN
+
+    LEFT_PAREN      shift and go to state 98
+
+
+state 81
+
+    (18) iterative_statement -> WHILE LEFT_PAREN expression . RIGHT_PAREN compound_statement
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    RIGHT_PAREN     shift and go to state 99
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 82
+
+    (35) factor -> LEFT_PAREN expression RIGHT_PAREN .
+
+    PRODUCT         reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    DIVIDE          reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    SEMICOLON       reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    GTE             reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    LTE             reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    IS              reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    GT              reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    LT              reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    EQUALS          reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    OR              reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    AND             reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    PLUS            reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    MINUS           reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    IN              reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    RIGHT_PAREN     reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    COMMA           reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    TO              reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+    STEP            reduce using rule 35 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
+
+
+state 83
+
+    (17) iterative_statement -> FOR LEFT_PAREN expression . TO expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> FOR LEFT_PAREN expression . TO expression STEP expression RIGHT_PAREN compound_statement
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    TO              shift and go to state 100
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 84
+
+    (5) conditional_statement -> IF LEFT_PAREN expression . RIGHT_PAREN compound_statement ELSE compound_statement
+    (30) conditional_statement -> IF LEFT_PAREN expression . RIGHT_PAREN compound_statement
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    RIGHT_PAREN     shift and go to state 101
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 85
+
+    (4) compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .
+
+    PUT             reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    IDENTIFIER      reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    LET             reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    SEMICOLON       reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    DO              reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    FOR             reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    WHILE           reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    IF              reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    LEFT_BRACE      reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    LOG             reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    FUNCTION        reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    MINUS           reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    NOT             reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    LEFT_PAREN      reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    DOUBLE          reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    INTEGER         reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    STRING          reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    $end            reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    RIGHT_BRACE     reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    ELSE            reduce using rule 4 (compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE .)
+
+
+state 86
+
+    (21) print_statement -> LOG LEFT_PAREN arguments . RIGHT_PAREN SEMICOLON
+
+    RIGHT_PAREN     shift and go to state 102
+
+
+state 87
+
+    (22) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN . arguments RIGHT_PAREN compound_statement
+    (33) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN . RIGHT_PAREN compound_statement
+    (1) arguments -> . expression COMMA arguments
+    (27) arguments -> . expression
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    RIGHT_PAREN     shift and go to state 104
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    arguments                      shift and go to state 103
+    expression                     shift and go to state 78
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 88
+
+    (26) term -> term PRODUCT factor .
+
+    PRODUCT         reduce using rule 26 (term -> term PRODUCT factor .)
+    DIVIDE          reduce using rule 26 (term -> term PRODUCT factor .)
+    SEMICOLON       reduce using rule 26 (term -> term PRODUCT factor .)
+    GTE             reduce using rule 26 (term -> term PRODUCT factor .)
+    LTE             reduce using rule 26 (term -> term PRODUCT factor .)
+    IS              reduce using rule 26 (term -> term PRODUCT factor .)
+    GT              reduce using rule 26 (term -> term PRODUCT factor .)
+    LT              reduce using rule 26 (term -> term PRODUCT factor .)
+    EQUALS          reduce using rule 26 (term -> term PRODUCT factor .)
+    OR              reduce using rule 26 (term -> term PRODUCT factor .)
+    AND             reduce using rule 26 (term -> term PRODUCT factor .)
+    PLUS            reduce using rule 26 (term -> term PRODUCT factor .)
+    MINUS           reduce using rule 26 (term -> term PRODUCT factor .)
+    IN              reduce using rule 26 (term -> term PRODUCT factor .)
+    RIGHT_PAREN     reduce using rule 26 (term -> term PRODUCT factor .)
+    COMMA           reduce using rule 26 (term -> term PRODUCT factor .)
+    TO              reduce using rule 26 (term -> term PRODUCT factor .)
+    STEP            reduce using rule 26 (term -> term PRODUCT factor .)
+
+
+state 89
+
+    (36) term -> term DIVIDE factor .
+
+    PRODUCT         reduce using rule 36 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 36 (term -> term DIVIDE factor .)
+    SEMICOLON       reduce using rule 36 (term -> term DIVIDE factor .)
+    GTE             reduce using rule 36 (term -> term DIVIDE factor .)
+    LTE             reduce using rule 36 (term -> term DIVIDE factor .)
+    IS              reduce using rule 36 (term -> term DIVIDE factor .)
+    GT              reduce using rule 36 (term -> term DIVIDE factor .)
+    LT              reduce using rule 36 (term -> term DIVIDE factor .)
+    EQUALS          reduce using rule 36 (term -> term DIVIDE factor .)
+    OR              reduce using rule 36 (term -> term DIVIDE factor .)
+    AND             reduce using rule 36 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 36 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 36 (term -> term DIVIDE factor .)
+    IN              reduce using rule 36 (term -> term DIVIDE factor .)
+    RIGHT_PAREN     reduce using rule 36 (term -> term DIVIDE factor .)
+    COMMA           reduce using rule 36 (term -> term DIVIDE factor .)
+    TO              reduce using rule 36 (term -> term DIVIDE factor .)
+    STEP            reduce using rule 36 (term -> term DIVIDE factor .)
+
+
+state 90
+
+    (3) assignment_statement -> PUT expression IN IDENTIFIER . SEMICOLON
+
+    SEMICOLON       shift and go to state 105
+
+
+state 91
+
+    (44) expression -> expression IS GREATER THAN . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 106
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 92
+
+    (45) expression -> expression IS LESS THAN . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    term                           shift and go to state 107
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 93
+
+    (29) assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .
+
+    PUT             reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    LET             reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    SEMICOLON       reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    DO              reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    FOR             reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    LEFT_BRACE      reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    LOG             reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    FUNCTION        reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    MINUS           reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    NOT             reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    LEFT_PAREN      reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    DOUBLE          reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    INTEGER         reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    STRING          reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 29 (assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON .)
+
+
+state 94
+
+    (2) function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .
+
+    PUT             reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LET             reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    SEMICOLON       reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    DO              reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    FOR             reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    WHILE           reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    IF              reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LEFT_BRACE      reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LOG             reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    FUNCTION        reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    MINUS           reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    NOT             reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LEFT_PAREN      reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    DOUBLE          reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    INTEGER         reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    STRING          reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    $end            reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 2 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+
+
+state 95
+
+    (28) function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 108
+
+
+state 96
+
+    (1) arguments -> expression COMMA . arguments
+    (1) arguments -> . expression COMMA arguments
+    (27) arguments -> . expression
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 78
+    arguments                      shift and go to state 109
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 97
+
+    (37) assignment_statement -> LET IDENTIFIER ASSIGN expression . SEMICOLON
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    SEMICOLON       shift and go to state 110
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 98
+
+    (16) iterative_statement -> DO compound_statement WHILE LEFT_PAREN . expression RIGHT_PAREN
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 111
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 99
+
+    (18) iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 112
+
+state 100
+
+    (17) iterative_statement -> FOR LEFT_PAREN expression TO . expression RIGHT_PAREN compound_statement
+    (31) iterative_statement -> FOR LEFT_PAREN expression TO . expression STEP expression RIGHT_PAREN compound_statement
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 113
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 101
+
+    (5) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN . compound_statement ELSE compound_statement
+    (30) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 114
+
+state 102
+
+    (21) print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 115
+
+
+state 103
+
+    (22) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments . RIGHT_PAREN compound_statement
+
+    RIGHT_PAREN     shift and go to state 116
+
+
+state 104
+
+    (33) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 117
+
+state 105
+
+    (3) assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .
+
+    PUT             reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    IDENTIFIER      reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    LET             reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    SEMICOLON       reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    DO              reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    FOR             reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    WHILE           reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    IF              reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    LEFT_BRACE      reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    LOG             reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    FUNCTION        reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    MINUS           reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    NOT             reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    LEFT_PAREN      reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    DOUBLE          reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    INTEGER         reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    STRING          reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    $end            reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 3 (assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON .)
+
+
+state 106
+
+    (44) expression -> expression IS GREATER THAN term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    GTE             reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    LTE             reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    IS              reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    GT              reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    LT              reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    EQUALS          reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    OR              reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    AND             reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    PLUS            reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    MINUS           reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    IN              reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    RIGHT_PAREN     reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    COMMA           reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    TO              reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    STEP            reduce using rule 44 (expression -> expression IS GREATER THAN term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 107
+
+    (45) expression -> expression IS LESS THAN term .
+    (26) term -> term . PRODUCT factor
+    (36) term -> term . DIVIDE factor
+
+    SEMICOLON       reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    GTE             reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    LTE             reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    IS              reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    GT              reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    LT              reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    EQUALS          reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    OR              reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    AND             reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    PLUS            reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    MINUS           reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    IN              reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    RIGHT_PAREN     reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    COMMA           reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    TO              reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    STEP            reduce using rule 45 (expression -> expression IS LESS THAN term .)
+    PRODUCT         shift and go to state 59
+    DIVIDE          shift and go to state 60
+
+
+state 108
+
+    (28) function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .
+
+    PUT             reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LET             reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    SEMICOLON       reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    DO              reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FOR             reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    WHILE           reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    IF              reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LEFT_BRACE      reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LOG             reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FUNCTION        reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    MINUS           reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    NOT             reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LEFT_PAREN      reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    DOUBLE          reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    INTEGER         reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    STRING          reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    $end            reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 28 (function_call -> IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+
+
+state 109
+
+    (1) arguments -> expression COMMA arguments .
+
+    RIGHT_PAREN     reduce using rule 1 (arguments -> expression COMMA arguments .)
+
+
+state 110
+
+    (37) assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .
+
+    PUT             reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    LET             reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    SEMICOLON       reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    DO              reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    FOR             reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    LEFT_BRACE      reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    LOG             reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    FUNCTION        reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    MINUS           reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    NOT             reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    LEFT_PAREN      reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    DOUBLE          reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    INTEGER         reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    STRING          reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 37 (assignment_statement -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+
+
+state 111
+
+    (16) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression . RIGHT_PAREN
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    RIGHT_PAREN     shift and go to state 118
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 112
+
+    (18) iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .
+
+    PUT             reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 18 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+
+
+state 113
+
+    (17) iterative_statement -> FOR LEFT_PAREN expression TO expression . RIGHT_PAREN compound_statement
+    (31) iterative_statement -> FOR LEFT_PAREN expression TO expression . STEP expression RIGHT_PAREN compound_statement
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    RIGHT_PAREN     shift and go to state 119
+    STEP            shift and go to state 120
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 114
+
+    (5) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement . ELSE compound_statement
+    (30) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .
+
+    ELSE            shift and go to state 121
+    PUT             reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 30 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+
+
+state 115
+
+    (21) print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .
+
+    PUT             reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LET             reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    SEMICOLON       reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    DO              reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FOR             reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    WHILE           reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    IF              reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LEFT_BRACE      reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LOG             reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FUNCTION        reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    MINUS           reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    NOT             reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LEFT_PAREN      reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    DOUBLE          reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    INTEGER         reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    STRING          reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    $end            reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 21 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+
+
+state 116
+
+    (22) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 122
+
+state 117
+
+    (33) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .
+
+    PUT             reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 33 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement .)
+
+
+state 118
+
+    (16) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .
+
+    PUT             reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    IDENTIFIER      reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LET             reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    SEMICOLON       reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    DO              reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    FOR             reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    WHILE           reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    IF              reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LEFT_BRACE      reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LOG             reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    FUNCTION        reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    MINUS           reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    NOT             reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LEFT_PAREN      reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    DOUBLE          reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    INTEGER         reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    STRING          reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    $end            reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    RIGHT_BRACE     reduce using rule 16 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+
+
+state 119
+
+    (17) iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 123
+
+state 120
+
+    (31) iterative_statement -> FOR LEFT_PAREN expression TO expression STEP . expression RIGHT_PAREN compound_statement
+    (24) expression -> . MINUS term
+    (34) expression -> . NOT term
+    (41) expression -> . expression GTE term
+    (43) expression -> . expression LTE term
+    (44) expression -> . expression IS GREATER THAN term
+    (45) expression -> . expression IS LESS THAN term
+    (46) expression -> . expression GT term
+    (47) expression -> . expression LT term
+    (48) expression -> . expression IS term
+    (49) expression -> . expression EQUALS term
+    (50) expression -> . expression OR term
+    (51) expression -> . expression AND term
+    (52) expression -> . expression PLUS term
+    (53) expression -> . expression MINUS term
+    (54) expression -> . term
+    (26) term -> . term PRODUCT factor
+    (36) term -> . term DIVIDE factor
+    (42) term -> . factor
+    (25) factor -> . literal
+    (35) factor -> . LEFT_PAREN expression RIGHT_PAREN
+    (32) literal -> . IDENTIFIER
+    (38) literal -> . DOUBLE
+    (39) literal -> . INTEGER
+    (40) literal -> . STRING
+
+    MINUS           shift and go to state 25
+    NOT             shift and go to state 27
+    LEFT_PAREN      shift and go to state 19
+    IDENTIFIER      shift and go to state 35
+    DOUBLE          shift and go to state 30
+    INTEGER         shift and go to state 31
+    STRING          shift and go to state 32
+
+    expression                     shift and go to state 124
+    term                           shift and go to state 26
+    factor                         shift and go to state 28
+    literal                        shift and go to state 29
+
+state 121
+
+    (5) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 125
+
+state 122
+
+    (22) function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .
+
+    PUT             reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 22 (function_statement -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement .)
+
+
+state 123
+
+    (17) iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .
+
+    PUT             reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 17 (iterative_statement -> FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement .)
+
+
+state 124
+
+    (31) iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression . RIGHT_PAREN compound_statement
+    (41) expression -> expression . GTE term
+    (43) expression -> expression . LTE term
+    (44) expression -> expression . IS GREATER THAN term
+    (45) expression -> expression . IS LESS THAN term
+    (46) expression -> expression . GT term
+    (47) expression -> expression . LT term
+    (48) expression -> expression . IS term
+    (49) expression -> expression . EQUALS term
+    (50) expression -> expression . OR term
+    (51) expression -> expression . AND term
+    (52) expression -> expression . PLUS term
+    (53) expression -> expression . MINUS term
+
+    RIGHT_PAREN     shift and go to state 126
+    GTE             shift and go to state 37
+    LTE             shift and go to state 38
+    IS              shift and go to state 39
+    GT              shift and go to state 40
+    LT              shift and go to state 41
+    EQUALS          shift and go to state 42
+    OR              shift and go to state 43
+    AND             shift and go to state 44
+    PLUS            shift and go to state 45
+    MINUS           shift and go to state 46
+
+
+state 125
+
+    (5) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .
+
+    PUT             reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    IDENTIFIER      reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LET             reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    SEMICOLON       reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    DO              reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    FOR             reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    WHILE           reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    IF              reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LEFT_BRACE      reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LOG             reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    FUNCTION        reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    MINUS           reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    NOT             reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LEFT_PAREN      reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    DOUBLE          reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    INTEGER         reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    STRING          reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    $end            reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    RIGHT_BRACE     reduce using rule 5 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+
+
+state 126
+
+    (31) iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN . compound_statement
+    (4) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 22
+
+    compound_statement             shift and go to state 127
+
+state 127
+
+    (31) iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .
+
+    PUT             reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 31 (iterative_statement -> FOR LEFT_PAREN expression TO expression STEP expression RIGHT_PAREN compound_statement .)
 
