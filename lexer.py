@@ -66,7 +66,9 @@ keywords = {
     'char'      : 'TYPE_CHAR',
     'double'    : 'TYPE_DOUBLE',
     'string'    : 'TYPE_STRING',
-    'bool'      : 'TYPE_BOOL'
+    'bool'      : 'TYPE_BOOL',
+    'true'      : 'TRUE',
+    'false'     : 'FALSE'
 }
 
 tokens += list(keywords.values())

@@ -14,6 +14,8 @@ class Node:
             variables.set(self.name,self.expression.visit())
         elif self.op == 'declare':
             variables.declare(self.name,self.expression.visit())
+        elif self.op == 'int' or self.op == 'double' or self.op == 'string' or self.op == 'char' or self.op == 'bool':
+            variables.declareStrict(self.name,self.expression.visit(),self.op)
         elif self.op == '+=':
             variables.set(self.name,variables.get(self.name) + self.expression.visit())
         elif self.op == '-=':

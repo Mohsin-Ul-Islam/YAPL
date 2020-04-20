@@ -21,12 +21,12 @@ precedence = (
 
 '''
 from Productions.Statements.Declaration         import *
-from Productions.Statements.Type                import *
 '''
 
 # importing grammar rules -- productions
 
 from Productions.Program                        import *
+from Productions.Statements.Type                import *
 from Productions.Statements.Generic             import *
 from Productions.Statements.List                import *
 from Productions.Functions.Call                 import *

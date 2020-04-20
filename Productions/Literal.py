@@ -16,6 +16,8 @@ def p_literal(p):
     literal : DOUBLE
             | INTEGER
             | STRING
+            | TRUE
+            | FALSE
 
     '''
     p[0] = Nodes.Literal.Node(p[1])

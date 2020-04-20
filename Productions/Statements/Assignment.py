@@ -11,3 +11,7 @@ def p_rule_02(p):
 def p_rule_03(p):
     'assignment_statement : LET IDENTIFIER ASSIGN expression SEMICOLON'
     p[0] = Nodes.Statements.Assignment.Node(p[2],'declare',p[4])
+
+def p_rule_04(p):
+    'assignment_statement : type_specifier IDENTIFIER ASSIGN expression SEMICOLON'
+    p[0] = Nodes.Statements.Assignment.Node(p[2],p[1],p[4])
