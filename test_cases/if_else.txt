@@ -1,0 +1,38 @@
+int isRaining = 0;
+int isSnowing = 1;
+int temp = 0;
+
+if(isRaining)
+{
+  if(temp > 45)
+  {
+    log("Wear lightweight raincoat");
+  }
+  else if(temp == 45)
+  {
+    log("Wear lightweight raincoat");
+  }
+  else
+  {
+    log("Wear fleece and raincoat");
+  }
+}
+else if(isSnowing)
+{
+  if(temp > 20)
+  {
+    log("Wear soft shell jacket");
+  }
+  else if(temp >= 0)
+  {
+    log("Wear down jacket");
+  }
+  else
+  {
+    log("Wear base layers and down jacket");
+  }
+}
+else
+{
+  log("It is hard to come up with interesting examples");
+}

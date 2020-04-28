@@ -1,0 +1,2 @@
+log("STANDARD OUTPUT");
+log(5.4, true, 2);

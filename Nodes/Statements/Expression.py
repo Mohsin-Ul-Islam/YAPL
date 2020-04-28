@@ -3,5 +3,5 @@ class Node:
     def __init__(self,expression):
         self.expression = expression
 
-    def visit(self):
-        return self.expression.visit()
+    def visit(self,context):
+        return self.expression.visit(context)

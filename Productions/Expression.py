@@ -15,9 +15,17 @@ def p_expression_negative(p):
     'expression : MINUS term'
     p[0] = Nodes.Expression.Node(p[2],'-')
 
+def p_expression_not_eq(p):
+    'expression : expression NOT ASSIGN term'
+    p[0] = Nodes.Expression.Node(p[1],'!=',p[4])
+
 def p_expression_not(p):
     'expression : NOT term'
     p[0] = Nodes.Expression.Node(p[2],'!')
+
+def p_expression_exp(p):
+    'expression : expression EXP term'
+    p[0] = Nodes.Expression.Node(p[1],'^',p[3])
 
 def p_expression_gte(p):
     'expression : expression GTE term'

@@ -1,0 +1,8 @@
+structure BookStruct {
+
+  string title;
+  string author;
+  string subject;
+  string books_id;
+
+}

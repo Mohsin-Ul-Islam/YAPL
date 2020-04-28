@@ -6,10 +6,10 @@ class Node:
         self.op    = op
         self.right = right
 
-    def visit(self):
+    def visit(self,context):
         if not self.op:
-            return self.left.visit()
+            return self.left.visit(context)
         elif self.op == '*':
-            return self.left.visit() * self.right.visit()
+            return self.left.visit(context) * self.right.visit(context)
         elif self.op == '/':
-            return self.left.visit() / self.right.visit()
+            return self.left.visit(context) / self.right.visit(context)

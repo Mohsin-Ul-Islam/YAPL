@@ -8,7 +8,7 @@ def p_statement(p):
                   | conditional_statement
                   | compound_statement
                   | print_statement
-                  | function_statement
                   | function_call
+                  | variable_declaration
     '''
     p[0] = Nodes.Statements.Generic.Node(p[1])

@@ -5,5 +5,5 @@ class Node:
         self.arguments = arguments
         self.body      = body
 
-    def visit(self,args=None):
-        return self.body.visit()
+    def visit(self,context=None):
+        return self.body.visit(context)

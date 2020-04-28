@@ -1,0 +1,18 @@
+structure books {
+
+  int total=10;
+  string name="A book";
+
+}
+books.name = "somethingelse";
+log(books.name);
+log(books.total);
+
+structure person {
+  string name="heelo";
+}
+
+person.name="hi";
+log(person.name);
+
+person=1;

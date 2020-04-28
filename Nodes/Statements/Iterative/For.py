@@ -6,13 +6,12 @@ class Node:
         self.body  = body
         self.step  = step
 
-    def visit(self):
+    def visit(self,context):
         rvalue = None
         if not self.step:
-            for i in range(self.start.visit(),self.end.visit()):
-                rvalue = self.body.visit()
+            for i in range(self.start.visit(context),self.end.visit(context)):
+                rvalue = self.body.visit(context)
         else:
-            for i in range(self.start.visit(),self.end.visit(),self.step.visit()):
-                rvalue = self.body.visit()
-
+            for i in range(self.start.visit(context),self.end.visit(context),self.step.visit(context)):
+                rvalue = self.body.visit(context)
         return rvalue

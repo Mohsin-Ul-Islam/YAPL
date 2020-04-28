@@ -32,7 +32,9 @@ tokens = [
     'GTE',
     'EQUALS',
     'INCREMENT',
-    'DECREMENT'
+    'DECREMENT',
+    'EXP',
+    'DOT'
 
 ]
 
@@ -77,6 +79,14 @@ tokens += list(keywords.values())
 ###########################################################
 ######### defining regular expressions for tokens #########
 ###########################################################
+def t_DOT(token):
+    r'\.'
+    return token
+
+def t_EXP(token):
+    r'\^'
+    return token
+
 def t_INCREMENT(token):
     r'\+\+'
     return token
@@ -202,7 +212,7 @@ def t_STRING(token):
 
 # token specification for variable names and keywords
 def t_IDENTIFIER(token):
-    r'[_A-Za-z][_A-Za-z]*'
+    r'[_A-Za-z][_A-Za-z0-9]*'
     token.type = keywords.get(token.value,'IDENTIFIER')
     return token
 

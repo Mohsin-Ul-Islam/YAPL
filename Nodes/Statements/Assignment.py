@@ -1,4 +1,4 @@
-from Nodes.Symbols import variables
+from State.SymbolTable import table
 
 class Node:
 
@@ -8,21 +8,17 @@ class Node:
         self.expression = expression
         self.op         = op
 
-    def visit(self):
+    def visit(self,context):
 
         if self.op == '=':
-            variables.set(self.name,self.expression.visit())
-        elif self.op == 'declare':
-            variables.declare(self.name,self.expression.visit())
-        elif self.op == 'int' or self.op == 'double' or self.op == 'string' or self.op == 'char' or self.op == 'bool':
-            variables.declareStrict(self.name,self.expression.visit(),self.op)
+            table.setVariable(self.name,self.expression.visit(context))
         elif self.op == '+=':
-            variables.set(self.name,variables.get(self.name) + self.expression.visit())
+            table.setVariable(self.name,variables.get(self.name) + self.expression.visit(context))
         elif self.op == '-=':
-            variables.set(self.name,variables.get(self.name) - self.expression.visit())
+            table.setVariable(self.name,variables.get(self.name) - self.expression.visit(context))
         elif self.op == '*=':
-            variables.set(self.name,variables.get(self.name) * self.expression.visit())
+            table.setVariable(self.name,variables.get(self.name) * self.expression.visit(context))
         elif self.op == '/=':
-            variables.set(self.name,variables.get(self.name) / self.expression.visit())
+            table.setVariable(self.name,variables.get(self.name) / self.expression.visit(context))
 
-        return variables.get(self.name)
+        return table.getVariable(self.name)

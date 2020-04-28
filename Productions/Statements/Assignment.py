@@ -1,4 +1,5 @@
 import Nodes.Statements.Assignment
+import Nodes.Statements.StructAssignment
 
 def p_rule_01(p):
     'assignment_statement : PUT expression IN IDENTIFIER SEMICOLON'
@@ -9,9 +10,5 @@ def p_rule_02(p):
     p[0] = Nodes.Statements.Assignment.Node(p[1],p[2],p[3])
 
 def p_rule_03(p):
-    'assignment_statement : LET IDENTIFIER ASSIGN expression SEMICOLON'
-    p[0] = Nodes.Statements.Assignment.Node(p[2],'declare',p[4])
-
-def p_rule_04(p):
-    'assignment_statement : type_specifier IDENTIFIER ASSIGN expression SEMICOLON'
-    p[0] = Nodes.Statements.Assignment.Node(p[2],p[1],p[4])
+    'assignment_statement : IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON'
+    p[0] = Nodes.Statements.StructAssignment.Node(p[1],p[3],p[5])

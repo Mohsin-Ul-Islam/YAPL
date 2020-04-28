@@ -4,7 +4,7 @@ class Node:
         self.condition = condition
         self.body      = body
 
-    def visit(self):
-        rvalue = self.body.visit()
-        while self.condition.visit():
-            rvalue = self.body.visit()
+    def visit(self,context):
+        rvalue = self.body.visit(context)
+        while self.condition.visit(context):
+            rvalue = self.body.visit(context)

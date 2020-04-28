@@ -1,0 +1,16 @@
+int i = 0;
+do
+{
+  int j = 0;
+  do
+  {
+    int k = 0;
+    do
+    {
+      log("(",i,",",j,",",k,")");
+      k+=1;
+    }while(k<2)
+    j++;
+  }while (j is less than 2)
+  put i+1 in i;
+}while(i<2)

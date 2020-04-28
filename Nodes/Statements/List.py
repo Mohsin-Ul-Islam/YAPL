@@ -4,10 +4,10 @@ class Node:
         self.statement = statement
         self.list      = list
 
-    def visit(self):
+    def visit(self,context):
         rvalue = None
         if self.statement:
-            rvalue = self.statement.visit()
+            rvalue = self.statement.visit(context)
         if self.list:
-            rvalue = self.list.visit()
+            rvalue = self.list.visit(context)
         return rvalue

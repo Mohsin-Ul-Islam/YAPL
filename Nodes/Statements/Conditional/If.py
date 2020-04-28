@@ -5,8 +5,8 @@ class Node:
         self.body      = body
         self.otherwise = otherwise
 
-    def visit(self):
-        if self.condition.visit():
-            return self.body.visit()
+    def visit(self,context=None):
+        if self.condition.visit(context):
+            return self.body.visit(context)
         elif self.otherwise:
-            return self.otherwise.visit()
+            return self.otherwise.visit(context)

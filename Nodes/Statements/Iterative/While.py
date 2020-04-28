@@ -5,8 +5,8 @@ class Node:
         self.condition = condition
         self.body      = body
 
-    def visit(self):
+    def visit(self,context):
         rvalue = None
-        while(self.condition.visit()):
-            rvalue = self.body.visit()
+        while(self.condition.visit(context)):
+            rvalue = self.body.visit(context)
         return rvalue
