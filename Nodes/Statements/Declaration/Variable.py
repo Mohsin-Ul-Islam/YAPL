@@ -16,8 +16,8 @@ class Node:
             table.insertVariable(self.name,value,self.specifier)
             return table.getVariable(self.name)
         elif context["type"] == 'struct':
-            table.insertStruct(context['name'],self.name,value,self.specifier)
-            return table.getStructMember(context['name'],self.name)
+            table.insertStructMember(context['name'],self.name,value,self.specifier)
+            return value
         elif context["type"] == 'routine':
             pass
         elif context["type"] == 'object':

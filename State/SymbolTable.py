@@ -1,3 +1,4 @@
+import copy
 from State.Variable  import Variable
 from State.Structure import Struct
 from Errors import *
@@ -7,6 +8,7 @@ class SymbolTable:
     def __init__(self):
         self.variables = {}
         self.structs   = {}
+        self.functions = {}
         self.index     = -1
         self.push()
 
@@ -39,29 +41,45 @@ class SymbolTable:
 
     #structure methods
     def newStruct(self,struct_name,member_name=None,value=None,specifier=None):
-        s = self.scope(struct_name)
-        if s != self.index:
-            self.structs[self.index][struct_name] = Struct(struct_name,member_name,value,specifier)
-            return value
-        else:
+        if self.structs.get(struct_name,None):
             raise RedeclarationError("RedeclarationError\nStruct: " + str(struct_name) + " already defined.")
+        else:
+            self.structs[struct_name] = Struct(struct_name,member_name,value,specifier)
+            return value
 
-    def insertStruct(self,struct_name,member_name,value=None,specifier=None):
-        self.structs[self.index][struct_name].addMember(member_name,value,specifier)
+    def insertStructMember(self,struct_name,member_name,value=None,specifier=None):
+        if self.structs.get(struct_name,None):
+            if self.structs.get(member_name,None):
+                raise RedeclarationError("RedeclarationError\n Struct member already defined.")
+            else:
+                self.structs[struct_name].addMember(member_name,value,specifier)
+        else:
+            raise VariableNotDefinedError("UndeclaredStructError\n")
+
+    def insertStruct(self,struct_name,instance_name):
+        s = self.scope(instance_name)
+        if self.structs.get(struct_name,None):
+            if s != self.index:
+                self.variables[self.index][instance_name] = copy.deepcopy(self.structs[struct_name])
+            else:
+                raise RedeclarationError("RedeclarationError\nVariable: " + str(instance_name) + " already defined.")
+        else:
+            raise VariableNotDefinedError("StructNotDefinedError\nUndefined Struct: " + str(struct_name))
+
 
     def getStructMember(self,struct_name,member_name):
         s = self.scope(struct_name)
         if s == -1:
-            raise VariableNotDefinedError("StructNotDefined\nUndefined Struct: " + str(name))
+            raise VariableNotDefinedError("StructNotDefined\nUndefined Struct: " + str(struct_name))
         else:
-            return self.structs.get(s).get(struct_name).getMember(member_name)
+            return self.variables.get(s).get(struct_name).getMember(member_name)
 
     def setStructMember(self,struct_name,member_name,value):
         s = self.scope(struct_name)
         if s == -1:
             raise VariableNotDefinedError("Struct Not defined Error")
         else:
-            self.structs[s][struct_name].setMember(member_name,value)
+            self.variables[s][struct_name].setMember(member_name,value)
 
 
 
@@ -77,7 +95,7 @@ class SymbolTable:
 
     def scope(self,name):
         for scope in range(self.index,-1,-1):
-            if self.variables.get(scope).get(name,None) or self.structs.get(scope).get(name,None):
+            if self.variables.get(scope).get(name,None):
                 return scope
         return -1
 

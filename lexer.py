@@ -34,7 +34,10 @@ tokens = [
     'INCREMENT',
     'DECREMENT',
     'EXP',
-    'DOT'
+    'DOT',
+    'LEFT_BRACKET',
+    'RIGHT_BRACKET',
+    'QUOTE'
 
 ]
 
@@ -79,6 +82,18 @@ tokens += list(keywords.values())
 ###########################################################
 ######### defining regular expressions for tokens #########
 ###########################################################
+def t_QUOTE(token):
+    r'\''
+    return token
+
+def t_LEFT_BRACKET(token):
+    r'\['
+    return token
+
+def t_RIGHT_BRACKET(token):
+    r'\]'
+    return token
+
 def t_DOT(token):
     r'\.'
     return token

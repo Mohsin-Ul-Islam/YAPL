@@ -6,7 +6,11 @@ import Nodes.StructMember
 ######### Literals ########################################
 ###########################################################
 
-def p_literal_struct(p):
+def p_literal_struct_01(p):
+    'literal : IDENTIFIER LEFT_BRACKET QUOTE IDENTIFIER QUOTE RIGHT_BRACKET'
+    p[0] = Nodes.StructMember.Node(p[1],p[4])
+
+def p_literal_struct_02(p):
     'literal : IDENTIFIER DOT IDENTIFIER'
     p[0] = Nodes.StructMember.Node(p[1],p[3])
 

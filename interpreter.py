@@ -1,4 +1,5 @@
 import sys
+import os
 from parser import parser
 from Errors import *
 
@@ -10,7 +11,6 @@ def execute_program(filename):
         tree.visit()
     except (VariableTypeError,VariableNotDefinedError,RedeclarationError,DivisionByZeroError) as error:
         print(error)
-        exit(1)
 
 def run_interpreter():
         while True:

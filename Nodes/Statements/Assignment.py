@@ -13,12 +13,14 @@ class Node:
         if self.op == '=':
             table.setVariable(self.name,self.expression.visit(context))
         elif self.op == '+=':
-            table.setVariable(self.name,variables.get(self.name) + self.expression.visit(context))
+            table.setVariable(self.name,table.getVariable(self.name) + self.expression.visit(context))
         elif self.op == '-=':
-            table.setVariable(self.name,variables.get(self.name) - self.expression.visit(context))
+            table.setVariable(self.name,table.getVariable(self.name) - self.expression.visit(context))
         elif self.op == '*=':
-            table.setVariable(self.name,variables.get(self.name) * self.expression.visit(context))
+            table.setVariable(self.name,table.getVariable(self.name) * self.expression.visit(context))
         elif self.op == '/=':
-            table.setVariable(self.name,variables.get(self.name) / self.expression.visit(context))
+            table.setVariable(self.name,table.getVariable(self.name) / self.expression.visit(context))
+        elif self.op == '%=':
+            table.setVariable(self.name,table.getVariable(self.name) % self.expression.visit(context))
 
         return table.getVariable(self.name)
