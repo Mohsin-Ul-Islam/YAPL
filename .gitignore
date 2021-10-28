@@ -1,3 +1,5 @@
 parser.out
 parser.py
 parsetab.py
+.venv
+__pycache__
