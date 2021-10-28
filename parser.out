@@ -16,26 +16,26 @@ Rule 2     type_specifier -> TYPE_INT
 Rule 3     type_specifier -> TYPE_CHAR
 Rule 4     type_specifier -> TYPE_DOUBLE
 Rule 5     type_specifier -> TYPE_STRING
-Rule 6     empty -> <empty>
-Rule 7     arguments -> expression COMMA arguments
-Rule 8     function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
-Rule 9     conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
-Rule 10    struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
-Rule 11    variable_declaration_list -> variable_declaration variable_declaration_list
-Rule 12    expression_statement -> expression SEMICOLON
-Rule 13    expression_statement -> SEMICOLON
-Rule 14    statement -> assignment_statement
-Rule 15    statement -> expression_statement
-Rule 16    statement -> iterative_statement
-Rule 17    statement -> conditional_statement
-Rule 18    statement -> compound_statement
-Rule 19    statement -> print_statement
-Rule 20    statement -> function_call
-Rule 21    statement -> variable_declaration
-Rule 22    iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-Rule 23    iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
-Rule 24    statement_list -> statement statement_list
-Rule 25    print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+Rule 6     arguments -> expression COMMA arguments
+Rule 7     function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+Rule 8     conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+Rule 9     struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
+Rule 10    variable_declaration_list -> variable_declaration variable_declaration_list
+Rule 11    expression_statement -> expression SEMICOLON
+Rule 12    expression_statement -> SEMICOLON
+Rule 13    statement -> assignment_statement
+Rule 14    statement -> expression_statement
+Rule 15    statement -> iterative_statement
+Rule 16    statement -> conditional_statement
+Rule 17    statement -> compound_statement
+Rule 18    statement -> print_statement
+Rule 19    statement -> function_call
+Rule 20    statement -> variable_declaration
+Rule 21    iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+Rule 22    iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+Rule 23    statement_list -> statement statement_list
+Rule 24    print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+Rule 25    empty -> <empty>
 Rule 26    assignment_statement -> PUT expression IN IDENTIFIER SEMICOLON
 Rule 27    compound_statement -> LEFT_BRACE statement_list RIGHT_BRACE
 Rule 28    function_declaration -> FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
@@ -108,13 +108,13 @@ Terminals, with rules where they appear
 AND                  : 88
 ASSIGN               : 30 42 44 54 66
 BREAK                : 
-COMMA                : 7
+COMMA                : 6
 DECREMENT            : 49
 DIVIDE               : 51
-DO                   : 22 40 53 61
+DO                   : 21 40 53 61
 DOT                  : 54 58
 DOUBLE               : 69
-ELSE                 : 9 52
+ELSE                 : 8 52
 EQUALS               : 86
 EXP                  : 76
 FALSE                : 73
@@ -123,18 +123,18 @@ FUNCTION             : 28 47
 GREATER              : 81
 GT                   : 83
 GTE                  : 78
-IDENTIFIER           : 8 10 26 28 30 33 37 42 44 46 46 47 49 54 54 56 58 58 63 65 67 67
-IF                   : 9 38 52
+IDENTIFIER           : 7 9 26 28 30 33 37 42 44 46 46 47 49 54 54 56 58 58 63 65 67 67
+IF                   : 8 38 52
 IN                   : 26
 INCREMENT            : 33
 INTEGER              : 70
 IS                   : 81 82 85
-LEFT_BRACE           : 10 27
+LEFT_BRACE           : 9 27
 LEFT_BRACKET         : 46
-LEFT_PAREN           : 8 9 22 23 25 28 31 37 38 40 45 47 50 52 68 75 77 79
+LEFT_PAREN           : 7 8 21 22 24 28 31 37 38 40 45 47 50 52 68 75 77 79
 LESS                 : 82
 LET                  : 30 63
-LOG                  : 25
+LOG                  : 24
 LT                   : 84
 LTE                  : 80
 MINUS                : 59 90
@@ -147,14 +147,14 @@ PRODUCT              : 35
 PUT                  : 26
 QUOTE                : 46 46
 RETURN               : 
-RIGHT_BRACE          : 10 27
+RIGHT_BRACE          : 9 27
 RIGHT_BRACKET        : 46
-RIGHT_PAREN          : 8 9 22 23 25 28 31 37 38 40 45 47 50 52 68 75 77 79
-SEMICOLON            : 8 12 13 25 26 30 37 40 42 44 54 56 61 63 67 68 75 77 77 79 79
+RIGHT_PAREN          : 7 8 21 22 24 28 31 37 38 40 45 47 50 52 68 75 77 79
+SEMICOLON            : 7 11 12 24 26 30 37 40 42 44 54 56 61 63 67 68 75 77 77 79 79
 SKIP                 : 
 STEP                 : 45 64
 STRING               : 71
-STRUCT               : 10
+STRUCT               : 9
 THAN                 : 81 82
 TO                   : 31 45 57 64
 TRUE                 : 72
@@ -163,33 +163,33 @@ TYPE_CHAR            : 3
 TYPE_DOUBLE          : 4
 TYPE_INT             : 2
 TYPE_STRING          : 5
-WHILE                : 22 23 40 41 53 61
+WHILE                : 21 22 40 41 53 61
 error                : 
 
 Nonterminals, with rules where they appear
 
-arguments            : 7 25 28 37
-assignment_statement : 14 68 77
-compound_statement   : 9 9 18 22 23 28 31 38 40 41 45 47 52 53 57 61 64 68 75 77 79
-conditional_statement : 17 52
+arguments            : 6 24 28 37
+assignment_statement : 13 68 77
+compound_statement   : 8 8 17 21 22 28 31 38 40 41 45 47 52 53 57 61 64 68 75 77 79
+conditional_statement : 16 52
 declaration_list     : 29 32 43 55
 empty                : 39 48 62
-expression           : 7 9 12 22 23 26 30 31 31 36 38 40 41 42 44 45 45 45 50 52 53 54 57 57 61 64 64 64 66 68 75 75 76 77 77 78 79 79 79 80 81 82 83 84 85 86 87 88 89 90
-expression_statement : 15
+expression           : 6 8 11 21 22 26 30 31 31 36 38 40 41 42 44 45 45 45 50 52 53 54 57 57 61 64 64 64 66 68 75 75 76 77 77 78 79 79 79 80 81 82 83 84 85 86 87 88 89 90
+expression_statement : 14
 factor               : 35 51 60
-function_call        : 20
+function_call        : 19
 function_declaration : 43
-iterative_statement  : 16
+iterative_statement  : 15
 literal              : 34
-print_statement      : 19
+print_statement      : 18
 program              : 0
-statement            : 24 29
-statement_list       : 24 27
+statement            : 23 29
+statement_list       : 23 27
 struct_declaration   : 55
 term                 : 35 51 59 66 74 76 78 80 81 82 83 84 85 86 87 88 89 90 91
 type_specifier       : 44 56
-variable_declaration : 11 21 68 75
-variable_declaration_list : 10 11
+variable_declaration : 10 20 68 75
+variable_declaration_list : 9 10
 
 Parsing method: LALR
 
@@ -201,25 +201,25 @@ state 0
     (43) declaration_list -> . function_declaration declaration_list
     (55) declaration_list -> . struct_declaration declaration_list
     (62) declaration_list -> . empty
-    (14) statement -> . assignment_statement
-    (15) statement -> . expression_statement
-    (16) statement -> . iterative_statement
-    (17) statement -> . conditional_statement
-    (18) statement -> . compound_statement
-    (19) statement -> . print_statement
-    (20) statement -> . function_call
-    (21) statement -> . variable_declaration
+    (13) statement -> . assignment_statement
+    (14) statement -> . expression_statement
+    (15) statement -> . iterative_statement
+    (16) statement -> . conditional_statement
+    (17) statement -> . compound_statement
+    (18) statement -> . print_statement
+    (19) statement -> . function_call
+    (20) statement -> . variable_declaration
     (28) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
     (47) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
-    (10) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
-    (6) empty -> .
+    (9) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
+    (25) empty -> .
     (26) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
     (42) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
     (54) assignment_statement -> . IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (12) expression_statement -> . expression SEMICOLON
-    (13) expression_statement -> . SEMICOLON
-    (22) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-    (23) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (11) expression_statement -> . expression SEMICOLON
+    (12) expression_statement -> . SEMICOLON
+    (21) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (22) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
     (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
     (40) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (41) iterative_statement -> . WHILE expression compound_statement
@@ -232,12 +232,12 @@ state 0
     (75) iterative_statement -> . FOR LEFT_PAREN variable_declaration expression SEMICOLON expression RIGHT_PAREN compound_statement
     (77) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON assignment_statement RIGHT_PAREN compound_statement
     (79) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON expression RIGHT_PAREN compound_statement
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (25) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-    (8) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (24) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (7) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
@@ -284,7 +284,7 @@ state 0
 
     FUNCTION        shift and go to state 15
     STRUCT          shift and go to state 18
-    $end            reduce using rule 6 (empty -> .)
+    $end            reduce using rule 25 (empty -> .)
     PUT             shift and go to state 20
     IDENTIFIER      shift and go to state 16
     SEMICOLON       shift and go to state 22
@@ -349,25 +349,25 @@ state 3
     (43) declaration_list -> . function_declaration declaration_list
     (55) declaration_list -> . struct_declaration declaration_list
     (62) declaration_list -> . empty
-    (14) statement -> . assignment_statement
-    (15) statement -> . expression_statement
-    (16) statement -> . iterative_statement
-    (17) statement -> . conditional_statement
-    (18) statement -> . compound_statement
-    (19) statement -> . print_statement
-    (20) statement -> . function_call
-    (21) statement -> . variable_declaration
+    (13) statement -> . assignment_statement
+    (14) statement -> . expression_statement
+    (15) statement -> . iterative_statement
+    (16) statement -> . conditional_statement
+    (17) statement -> . compound_statement
+    (18) statement -> . print_statement
+    (19) statement -> . function_call
+    (20) statement -> . variable_declaration
     (28) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
     (47) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
-    (10) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
-    (6) empty -> .
+    (9) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
+    (25) empty -> .
     (26) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
     (42) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
     (54) assignment_statement -> . IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (12) expression_statement -> . expression SEMICOLON
-    (13) expression_statement -> . SEMICOLON
-    (22) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-    (23) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (11) expression_statement -> . expression SEMICOLON
+    (12) expression_statement -> . SEMICOLON
+    (21) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (22) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
     (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
     (40) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (41) iterative_statement -> . WHILE expression compound_statement
@@ -380,12 +380,12 @@ state 3
     (75) iterative_statement -> . FOR LEFT_PAREN variable_declaration expression SEMICOLON expression RIGHT_PAREN compound_statement
     (77) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON assignment_statement RIGHT_PAREN compound_statement
     (79) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON expression RIGHT_PAREN compound_statement
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (25) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-    (8) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (24) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (7) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
@@ -432,7 +432,7 @@ state 3
 
     FUNCTION        shift and go to state 15
     STRUCT          shift and go to state 18
-    $end            reduce using rule 6 (empty -> .)
+    $end            reduce using rule 25 (empty -> .)
     PUT             shift and go to state 20
     IDENTIFIER      shift and go to state 16
     SEMICOLON       shift and go to state 22
@@ -483,25 +483,25 @@ state 4
     (43) declaration_list -> . function_declaration declaration_list
     (55) declaration_list -> . struct_declaration declaration_list
     (62) declaration_list -> . empty
-    (14) statement -> . assignment_statement
-    (15) statement -> . expression_statement
-    (16) statement -> . iterative_statement
-    (17) statement -> . conditional_statement
-    (18) statement -> . compound_statement
-    (19) statement -> . print_statement
-    (20) statement -> . function_call
-    (21) statement -> . variable_declaration
+    (13) statement -> . assignment_statement
+    (14) statement -> . expression_statement
+    (15) statement -> . iterative_statement
+    (16) statement -> . conditional_statement
+    (17) statement -> . compound_statement
+    (18) statement -> . print_statement
+    (19) statement -> . function_call
+    (20) statement -> . variable_declaration
     (28) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
     (47) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
-    (10) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
-    (6) empty -> .
+    (9) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
+    (25) empty -> .
     (26) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
     (42) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
     (54) assignment_statement -> . IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (12) expression_statement -> . expression SEMICOLON
-    (13) expression_statement -> . SEMICOLON
-    (22) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-    (23) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (11) expression_statement -> . expression SEMICOLON
+    (12) expression_statement -> . SEMICOLON
+    (21) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (22) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
     (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
     (40) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (41) iterative_statement -> . WHILE expression compound_statement
@@ -514,12 +514,12 @@ state 4
     (75) iterative_statement -> . FOR LEFT_PAREN variable_declaration expression SEMICOLON expression RIGHT_PAREN compound_statement
     (77) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON assignment_statement RIGHT_PAREN compound_statement
     (79) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON expression RIGHT_PAREN compound_statement
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (25) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-    (8) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (24) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (7) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
@@ -566,7 +566,7 @@ state 4
 
     FUNCTION        shift and go to state 15
     STRUCT          shift and go to state 18
-    $end            reduce using rule 6 (empty -> .)
+    $end            reduce using rule 25 (empty -> .)
     PUT             shift and go to state 20
     IDENTIFIER      shift and go to state 16
     SEMICOLON       shift and go to state 22
@@ -617,25 +617,25 @@ state 5
     (43) declaration_list -> . function_declaration declaration_list
     (55) declaration_list -> . struct_declaration declaration_list
     (62) declaration_list -> . empty
-    (14) statement -> . assignment_statement
-    (15) statement -> . expression_statement
-    (16) statement -> . iterative_statement
-    (17) statement -> . conditional_statement
-    (18) statement -> . compound_statement
-    (19) statement -> . print_statement
-    (20) statement -> . function_call
-    (21) statement -> . variable_declaration
+    (13) statement -> . assignment_statement
+    (14) statement -> . expression_statement
+    (15) statement -> . iterative_statement
+    (16) statement -> . conditional_statement
+    (17) statement -> . compound_statement
+    (18) statement -> . print_statement
+    (19) statement -> . function_call
+    (20) statement -> . variable_declaration
     (28) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN compound_statement
     (47) function_declaration -> . FUNCTION IDENTIFIER LEFT_PAREN RIGHT_PAREN compound_statement
-    (10) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
-    (6) empty -> .
+    (9) struct_declaration -> . STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
+    (25) empty -> .
     (26) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
     (42) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
     (54) assignment_statement -> . IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (12) expression_statement -> . expression SEMICOLON
-    (13) expression_statement -> . SEMICOLON
-    (22) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-    (23) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (11) expression_statement -> . expression SEMICOLON
+    (12) expression_statement -> . SEMICOLON
+    (21) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (22) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
     (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
     (40) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (41) iterative_statement -> . WHILE expression compound_statement
@@ -648,12 +648,12 @@ state 5
     (75) iterative_statement -> . FOR LEFT_PAREN variable_declaration expression SEMICOLON expression RIGHT_PAREN compound_statement
     (77) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON assignment_statement RIGHT_PAREN compound_statement
     (79) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON expression RIGHT_PAREN compound_statement
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (25) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-    (8) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (24) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (7) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
@@ -700,7 +700,7 @@ state 5
 
     FUNCTION        shift and go to state 15
     STRUCT          shift and go to state 18
-    $end            reduce using rule 6 (empty -> .)
+    $end            reduce using rule 25 (empty -> .)
     PUT             shift and go to state 20
     IDENTIFIER      shift and go to state 16
     SEMICOLON       shift and go to state 22
@@ -753,266 +753,266 @@ state 6
 
 state 7
 
-    (14) statement -> assignment_statement .
+    (13) statement -> assignment_statement .
 
-    FUNCTION        reduce using rule 14 (statement -> assignment_statement .)
-    STRUCT          reduce using rule 14 (statement -> assignment_statement .)
-    PUT             reduce using rule 14 (statement -> assignment_statement .)
-    IDENTIFIER      reduce using rule 14 (statement -> assignment_statement .)
-    SEMICOLON       reduce using rule 14 (statement -> assignment_statement .)
-    DO              reduce using rule 14 (statement -> assignment_statement .)
-    WHILE           reduce using rule 14 (statement -> assignment_statement .)
-    FOR             reduce using rule 14 (statement -> assignment_statement .)
-    IF              reduce using rule 14 (statement -> assignment_statement .)
-    LEFT_BRACE      reduce using rule 14 (statement -> assignment_statement .)
-    LOG             reduce using rule 14 (statement -> assignment_statement .)
-    LET             reduce using rule 14 (statement -> assignment_statement .)
-    MINUS           reduce using rule 14 (statement -> assignment_statement .)
-    NOT             reduce using rule 14 (statement -> assignment_statement .)
-    TYPE_BOOL       reduce using rule 14 (statement -> assignment_statement .)
-    TYPE_INT        reduce using rule 14 (statement -> assignment_statement .)
-    TYPE_CHAR       reduce using rule 14 (statement -> assignment_statement .)
-    TYPE_DOUBLE     reduce using rule 14 (statement -> assignment_statement .)
-    TYPE_STRING     reduce using rule 14 (statement -> assignment_statement .)
-    LEFT_PAREN      reduce using rule 14 (statement -> assignment_statement .)
-    DOUBLE          reduce using rule 14 (statement -> assignment_statement .)
-    INTEGER         reduce using rule 14 (statement -> assignment_statement .)
-    STRING          reduce using rule 14 (statement -> assignment_statement .)
-    TRUE            reduce using rule 14 (statement -> assignment_statement .)
-    FALSE           reduce using rule 14 (statement -> assignment_statement .)
-    $end            reduce using rule 14 (statement -> assignment_statement .)
-    RIGHT_BRACE     reduce using rule 14 (statement -> assignment_statement .)
+    FUNCTION        reduce using rule 13 (statement -> assignment_statement .)
+    STRUCT          reduce using rule 13 (statement -> assignment_statement .)
+    PUT             reduce using rule 13 (statement -> assignment_statement .)
+    IDENTIFIER      reduce using rule 13 (statement -> assignment_statement .)
+    SEMICOLON       reduce using rule 13 (statement -> assignment_statement .)
+    DO              reduce using rule 13 (statement -> assignment_statement .)
+    WHILE           reduce using rule 13 (statement -> assignment_statement .)
+    FOR             reduce using rule 13 (statement -> assignment_statement .)
+    IF              reduce using rule 13 (statement -> assignment_statement .)
+    LEFT_BRACE      reduce using rule 13 (statement -> assignment_statement .)
+    LOG             reduce using rule 13 (statement -> assignment_statement .)
+    LET             reduce using rule 13 (statement -> assignment_statement .)
+    MINUS           reduce using rule 13 (statement -> assignment_statement .)
+    NOT             reduce using rule 13 (statement -> assignment_statement .)
+    TYPE_BOOL       reduce using rule 13 (statement -> assignment_statement .)
+    TYPE_INT        reduce using rule 13 (statement -> assignment_statement .)
+    TYPE_CHAR       reduce using rule 13 (statement -> assignment_statement .)
+    TYPE_DOUBLE     reduce using rule 13 (statement -> assignment_statement .)
+    TYPE_STRING     reduce using rule 13 (statement -> assignment_statement .)
+    LEFT_PAREN      reduce using rule 13 (statement -> assignment_statement .)
+    DOUBLE          reduce using rule 13 (statement -> assignment_statement .)
+    INTEGER         reduce using rule 13 (statement -> assignment_statement .)
+    STRING          reduce using rule 13 (statement -> assignment_statement .)
+    TRUE            reduce using rule 13 (statement -> assignment_statement .)
+    FALSE           reduce using rule 13 (statement -> assignment_statement .)
+    $end            reduce using rule 13 (statement -> assignment_statement .)
+    RIGHT_BRACE     reduce using rule 13 (statement -> assignment_statement .)
 
 
 state 8
 
-    (15) statement -> expression_statement .
+    (14) statement -> expression_statement .
 
-    FUNCTION        reduce using rule 15 (statement -> expression_statement .)
-    STRUCT          reduce using rule 15 (statement -> expression_statement .)
-    PUT             reduce using rule 15 (statement -> expression_statement .)
-    IDENTIFIER      reduce using rule 15 (statement -> expression_statement .)
-    SEMICOLON       reduce using rule 15 (statement -> expression_statement .)
-    DO              reduce using rule 15 (statement -> expression_statement .)
-    WHILE           reduce using rule 15 (statement -> expression_statement .)
-    FOR             reduce using rule 15 (statement -> expression_statement .)
-    IF              reduce using rule 15 (statement -> expression_statement .)
-    LEFT_BRACE      reduce using rule 15 (statement -> expression_statement .)
-    LOG             reduce using rule 15 (statement -> expression_statement .)
-    LET             reduce using rule 15 (statement -> expression_statement .)
-    MINUS           reduce using rule 15 (statement -> expression_statement .)
-    NOT             reduce using rule 15 (statement -> expression_statement .)
-    TYPE_BOOL       reduce using rule 15 (statement -> expression_statement .)
-    TYPE_INT        reduce using rule 15 (statement -> expression_statement .)
-    TYPE_CHAR       reduce using rule 15 (statement -> expression_statement .)
-    TYPE_DOUBLE     reduce using rule 15 (statement -> expression_statement .)
-    TYPE_STRING     reduce using rule 15 (statement -> expression_statement .)
-    LEFT_PAREN      reduce using rule 15 (statement -> expression_statement .)
-    DOUBLE          reduce using rule 15 (statement -> expression_statement .)
-    INTEGER         reduce using rule 15 (statement -> expression_statement .)
-    STRING          reduce using rule 15 (statement -> expression_statement .)
-    TRUE            reduce using rule 15 (statement -> expression_statement .)
-    FALSE           reduce using rule 15 (statement -> expression_statement .)
-    $end            reduce using rule 15 (statement -> expression_statement .)
-    RIGHT_BRACE     reduce using rule 15 (statement -> expression_statement .)
+    FUNCTION        reduce using rule 14 (statement -> expression_statement .)
+    STRUCT          reduce using rule 14 (statement -> expression_statement .)
+    PUT             reduce using rule 14 (statement -> expression_statement .)
+    IDENTIFIER      reduce using rule 14 (statement -> expression_statement .)
+    SEMICOLON       reduce using rule 14 (statement -> expression_statement .)
+    DO              reduce using rule 14 (statement -> expression_statement .)
+    WHILE           reduce using rule 14 (statement -> expression_statement .)
+    FOR             reduce using rule 14 (statement -> expression_statement .)
+    IF              reduce using rule 14 (statement -> expression_statement .)
+    LEFT_BRACE      reduce using rule 14 (statement -> expression_statement .)
+    LOG             reduce using rule 14 (statement -> expression_statement .)
+    LET             reduce using rule 14 (statement -> expression_statement .)
+    MINUS           reduce using rule 14 (statement -> expression_statement .)
+    NOT             reduce using rule 14 (statement -> expression_statement .)
+    TYPE_BOOL       reduce using rule 14 (statement -> expression_statement .)
+    TYPE_INT        reduce using rule 14 (statement -> expression_statement .)
+    TYPE_CHAR       reduce using rule 14 (statement -> expression_statement .)
+    TYPE_DOUBLE     reduce using rule 14 (statement -> expression_statement .)
+    TYPE_STRING     reduce using rule 14 (statement -> expression_statement .)
+    LEFT_PAREN      reduce using rule 14 (statement -> expression_statement .)
+    DOUBLE          reduce using rule 14 (statement -> expression_statement .)
+    INTEGER         reduce using rule 14 (statement -> expression_statement .)
+    STRING          reduce using rule 14 (statement -> expression_statement .)
+    TRUE            reduce using rule 14 (statement -> expression_statement .)
+    FALSE           reduce using rule 14 (statement -> expression_statement .)
+    $end            reduce using rule 14 (statement -> expression_statement .)
+    RIGHT_BRACE     reduce using rule 14 (statement -> expression_statement .)
 
 
 state 9
 
-    (16) statement -> iterative_statement .
+    (15) statement -> iterative_statement .
 
-    FUNCTION        reduce using rule 16 (statement -> iterative_statement .)
-    STRUCT          reduce using rule 16 (statement -> iterative_statement .)
-    PUT             reduce using rule 16 (statement -> iterative_statement .)
-    IDENTIFIER      reduce using rule 16 (statement -> iterative_statement .)
-    SEMICOLON       reduce using rule 16 (statement -> iterative_statement .)
-    DO              reduce using rule 16 (statement -> iterative_statement .)
-    WHILE           reduce using rule 16 (statement -> iterative_statement .)
-    FOR             reduce using rule 16 (statement -> iterative_statement .)
-    IF              reduce using rule 16 (statement -> iterative_statement .)
-    LEFT_BRACE      reduce using rule 16 (statement -> iterative_statement .)
-    LOG             reduce using rule 16 (statement -> iterative_statement .)
-    LET             reduce using rule 16 (statement -> iterative_statement .)
-    MINUS           reduce using rule 16 (statement -> iterative_statement .)
-    NOT             reduce using rule 16 (statement -> iterative_statement .)
-    TYPE_BOOL       reduce using rule 16 (statement -> iterative_statement .)
-    TYPE_INT        reduce using rule 16 (statement -> iterative_statement .)
-    TYPE_CHAR       reduce using rule 16 (statement -> iterative_statement .)
-    TYPE_DOUBLE     reduce using rule 16 (statement -> iterative_statement .)
-    TYPE_STRING     reduce using rule 16 (statement -> iterative_statement .)
-    LEFT_PAREN      reduce using rule 16 (statement -> iterative_statement .)
-    DOUBLE          reduce using rule 16 (statement -> iterative_statement .)
-    INTEGER         reduce using rule 16 (statement -> iterative_statement .)
-    STRING          reduce using rule 16 (statement -> iterative_statement .)
-    TRUE            reduce using rule 16 (statement -> iterative_statement .)
-    FALSE           reduce using rule 16 (statement -> iterative_statement .)
-    $end            reduce using rule 16 (statement -> iterative_statement .)
-    RIGHT_BRACE     reduce using rule 16 (statement -> iterative_statement .)
+    FUNCTION        reduce using rule 15 (statement -> iterative_statement .)
+    STRUCT          reduce using rule 15 (statement -> iterative_statement .)
+    PUT             reduce using rule 15 (statement -> iterative_statement .)
+    IDENTIFIER      reduce using rule 15 (statement -> iterative_statement .)
+    SEMICOLON       reduce using rule 15 (statement -> iterative_statement .)
+    DO              reduce using rule 15 (statement -> iterative_statement .)
+    WHILE           reduce using rule 15 (statement -> iterative_statement .)
+    FOR             reduce using rule 15 (statement -> iterative_statement .)
+    IF              reduce using rule 15 (statement -> iterative_statement .)
+    LEFT_BRACE      reduce using rule 15 (statement -> iterative_statement .)
+    LOG             reduce using rule 15 (statement -> iterative_statement .)
+    LET             reduce using rule 15 (statement -> iterative_statement .)
+    MINUS           reduce using rule 15 (statement -> iterative_statement .)
+    NOT             reduce using rule 15 (statement -> iterative_statement .)
+    TYPE_BOOL       reduce using rule 15 (statement -> iterative_statement .)
+    TYPE_INT        reduce using rule 15 (statement -> iterative_statement .)
+    TYPE_CHAR       reduce using rule 15 (statement -> iterative_statement .)
+    TYPE_DOUBLE     reduce using rule 15 (statement -> iterative_statement .)
+    TYPE_STRING     reduce using rule 15 (statement -> iterative_statement .)
+    LEFT_PAREN      reduce using rule 15 (statement -> iterative_statement .)
+    DOUBLE          reduce using rule 15 (statement -> iterative_statement .)
+    INTEGER         reduce using rule 15 (statement -> iterative_statement .)
+    STRING          reduce using rule 15 (statement -> iterative_statement .)
+    TRUE            reduce using rule 15 (statement -> iterative_statement .)
+    FALSE           reduce using rule 15 (statement -> iterative_statement .)
+    $end            reduce using rule 15 (statement -> iterative_statement .)
+    RIGHT_BRACE     reduce using rule 15 (statement -> iterative_statement .)
 
 
 state 10
 
-    (17) statement -> conditional_statement .
+    (16) statement -> conditional_statement .
 
-    FUNCTION        reduce using rule 17 (statement -> conditional_statement .)
-    STRUCT          reduce using rule 17 (statement -> conditional_statement .)
-    PUT             reduce using rule 17 (statement -> conditional_statement .)
-    IDENTIFIER      reduce using rule 17 (statement -> conditional_statement .)
-    SEMICOLON       reduce using rule 17 (statement -> conditional_statement .)
-    DO              reduce using rule 17 (statement -> conditional_statement .)
-    WHILE           reduce using rule 17 (statement -> conditional_statement .)
-    FOR             reduce using rule 17 (statement -> conditional_statement .)
-    IF              reduce using rule 17 (statement -> conditional_statement .)
-    LEFT_BRACE      reduce using rule 17 (statement -> conditional_statement .)
-    LOG             reduce using rule 17 (statement -> conditional_statement .)
-    LET             reduce using rule 17 (statement -> conditional_statement .)
-    MINUS           reduce using rule 17 (statement -> conditional_statement .)
-    NOT             reduce using rule 17 (statement -> conditional_statement .)
-    TYPE_BOOL       reduce using rule 17 (statement -> conditional_statement .)
-    TYPE_INT        reduce using rule 17 (statement -> conditional_statement .)
-    TYPE_CHAR       reduce using rule 17 (statement -> conditional_statement .)
-    TYPE_DOUBLE     reduce using rule 17 (statement -> conditional_statement .)
-    TYPE_STRING     reduce using rule 17 (statement -> conditional_statement .)
-    LEFT_PAREN      reduce using rule 17 (statement -> conditional_statement .)
-    DOUBLE          reduce using rule 17 (statement -> conditional_statement .)
-    INTEGER         reduce using rule 17 (statement -> conditional_statement .)
-    STRING          reduce using rule 17 (statement -> conditional_statement .)
-    TRUE            reduce using rule 17 (statement -> conditional_statement .)
-    FALSE           reduce using rule 17 (statement -> conditional_statement .)
-    $end            reduce using rule 17 (statement -> conditional_statement .)
-    RIGHT_BRACE     reduce using rule 17 (statement -> conditional_statement .)
+    FUNCTION        reduce using rule 16 (statement -> conditional_statement .)
+    STRUCT          reduce using rule 16 (statement -> conditional_statement .)
+    PUT             reduce using rule 16 (statement -> conditional_statement .)
+    IDENTIFIER      reduce using rule 16 (statement -> conditional_statement .)
+    SEMICOLON       reduce using rule 16 (statement -> conditional_statement .)
+    DO              reduce using rule 16 (statement -> conditional_statement .)
+    WHILE           reduce using rule 16 (statement -> conditional_statement .)
+    FOR             reduce using rule 16 (statement -> conditional_statement .)
+    IF              reduce using rule 16 (statement -> conditional_statement .)
+    LEFT_BRACE      reduce using rule 16 (statement -> conditional_statement .)
+    LOG             reduce using rule 16 (statement -> conditional_statement .)
+    LET             reduce using rule 16 (statement -> conditional_statement .)
+    MINUS           reduce using rule 16 (statement -> conditional_statement .)
+    NOT             reduce using rule 16 (statement -> conditional_statement .)
+    TYPE_BOOL       reduce using rule 16 (statement -> conditional_statement .)
+    TYPE_INT        reduce using rule 16 (statement -> conditional_statement .)
+    TYPE_CHAR       reduce using rule 16 (statement -> conditional_statement .)
+    TYPE_DOUBLE     reduce using rule 16 (statement -> conditional_statement .)
+    TYPE_STRING     reduce using rule 16 (statement -> conditional_statement .)
+    LEFT_PAREN      reduce using rule 16 (statement -> conditional_statement .)
+    DOUBLE          reduce using rule 16 (statement -> conditional_statement .)
+    INTEGER         reduce using rule 16 (statement -> conditional_statement .)
+    STRING          reduce using rule 16 (statement -> conditional_statement .)
+    TRUE            reduce using rule 16 (statement -> conditional_statement .)
+    FALSE           reduce using rule 16 (statement -> conditional_statement .)
+    $end            reduce using rule 16 (statement -> conditional_statement .)
+    RIGHT_BRACE     reduce using rule 16 (statement -> conditional_statement .)
 
 
 state 11
 
-    (18) statement -> compound_statement .
+    (17) statement -> compound_statement .
 
-    FUNCTION        reduce using rule 18 (statement -> compound_statement .)
-    STRUCT          reduce using rule 18 (statement -> compound_statement .)
-    PUT             reduce using rule 18 (statement -> compound_statement .)
-    IDENTIFIER      reduce using rule 18 (statement -> compound_statement .)
-    SEMICOLON       reduce using rule 18 (statement -> compound_statement .)
-    DO              reduce using rule 18 (statement -> compound_statement .)
-    WHILE           reduce using rule 18 (statement -> compound_statement .)
-    FOR             reduce using rule 18 (statement -> compound_statement .)
-    IF              reduce using rule 18 (statement -> compound_statement .)
-    LEFT_BRACE      reduce using rule 18 (statement -> compound_statement .)
-    LOG             reduce using rule 18 (statement -> compound_statement .)
-    LET             reduce using rule 18 (statement -> compound_statement .)
-    MINUS           reduce using rule 18 (statement -> compound_statement .)
-    NOT             reduce using rule 18 (statement -> compound_statement .)
-    TYPE_BOOL       reduce using rule 18 (statement -> compound_statement .)
-    TYPE_INT        reduce using rule 18 (statement -> compound_statement .)
-    TYPE_CHAR       reduce using rule 18 (statement -> compound_statement .)
-    TYPE_DOUBLE     reduce using rule 18 (statement -> compound_statement .)
-    TYPE_STRING     reduce using rule 18 (statement -> compound_statement .)
-    LEFT_PAREN      reduce using rule 18 (statement -> compound_statement .)
-    DOUBLE          reduce using rule 18 (statement -> compound_statement .)
-    INTEGER         reduce using rule 18 (statement -> compound_statement .)
-    STRING          reduce using rule 18 (statement -> compound_statement .)
-    TRUE            reduce using rule 18 (statement -> compound_statement .)
-    FALSE           reduce using rule 18 (statement -> compound_statement .)
-    $end            reduce using rule 18 (statement -> compound_statement .)
-    RIGHT_BRACE     reduce using rule 18 (statement -> compound_statement .)
+    FUNCTION        reduce using rule 17 (statement -> compound_statement .)
+    STRUCT          reduce using rule 17 (statement -> compound_statement .)
+    PUT             reduce using rule 17 (statement -> compound_statement .)
+    IDENTIFIER      reduce using rule 17 (statement -> compound_statement .)
+    SEMICOLON       reduce using rule 17 (statement -> compound_statement .)
+    DO              reduce using rule 17 (statement -> compound_statement .)
+    WHILE           reduce using rule 17 (statement -> compound_statement .)
+    FOR             reduce using rule 17 (statement -> compound_statement .)
+    IF              reduce using rule 17 (statement -> compound_statement .)
+    LEFT_BRACE      reduce using rule 17 (statement -> compound_statement .)
+    LOG             reduce using rule 17 (statement -> compound_statement .)
+    LET             reduce using rule 17 (statement -> compound_statement .)
+    MINUS           reduce using rule 17 (statement -> compound_statement .)
+    NOT             reduce using rule 17 (statement -> compound_statement .)
+    TYPE_BOOL       reduce using rule 17 (statement -> compound_statement .)
+    TYPE_INT        reduce using rule 17 (statement -> compound_statement .)
+    TYPE_CHAR       reduce using rule 17 (statement -> compound_statement .)
+    TYPE_DOUBLE     reduce using rule 17 (statement -> compound_statement .)
+    TYPE_STRING     reduce using rule 17 (statement -> compound_statement .)
+    LEFT_PAREN      reduce using rule 17 (statement -> compound_statement .)
+    DOUBLE          reduce using rule 17 (statement -> compound_statement .)
+    INTEGER         reduce using rule 17 (statement -> compound_statement .)
+    STRING          reduce using rule 17 (statement -> compound_statement .)
+    TRUE            reduce using rule 17 (statement -> compound_statement .)
+    FALSE           reduce using rule 17 (statement -> compound_statement .)
+    $end            reduce using rule 17 (statement -> compound_statement .)
+    RIGHT_BRACE     reduce using rule 17 (statement -> compound_statement .)
 
 
 state 12
 
-    (19) statement -> print_statement .
+    (18) statement -> print_statement .
 
-    FUNCTION        reduce using rule 19 (statement -> print_statement .)
-    STRUCT          reduce using rule 19 (statement -> print_statement .)
-    PUT             reduce using rule 19 (statement -> print_statement .)
-    IDENTIFIER      reduce using rule 19 (statement -> print_statement .)
-    SEMICOLON       reduce using rule 19 (statement -> print_statement .)
-    DO              reduce using rule 19 (statement -> print_statement .)
-    WHILE           reduce using rule 19 (statement -> print_statement .)
-    FOR             reduce using rule 19 (statement -> print_statement .)
-    IF              reduce using rule 19 (statement -> print_statement .)
-    LEFT_BRACE      reduce using rule 19 (statement -> print_statement .)
-    LOG             reduce using rule 19 (statement -> print_statement .)
-    LET             reduce using rule 19 (statement -> print_statement .)
-    MINUS           reduce using rule 19 (statement -> print_statement .)
-    NOT             reduce using rule 19 (statement -> print_statement .)
-    TYPE_BOOL       reduce using rule 19 (statement -> print_statement .)
-    TYPE_INT        reduce using rule 19 (statement -> print_statement .)
-    TYPE_CHAR       reduce using rule 19 (statement -> print_statement .)
-    TYPE_DOUBLE     reduce using rule 19 (statement -> print_statement .)
-    TYPE_STRING     reduce using rule 19 (statement -> print_statement .)
-    LEFT_PAREN      reduce using rule 19 (statement -> print_statement .)
-    DOUBLE          reduce using rule 19 (statement -> print_statement .)
-    INTEGER         reduce using rule 19 (statement -> print_statement .)
-    STRING          reduce using rule 19 (statement -> print_statement .)
-    TRUE            reduce using rule 19 (statement -> print_statement .)
-    FALSE           reduce using rule 19 (statement -> print_statement .)
-    $end            reduce using rule 19 (statement -> print_statement .)
-    RIGHT_BRACE     reduce using rule 19 (statement -> print_statement .)
+    FUNCTION        reduce using rule 18 (statement -> print_statement .)
+    STRUCT          reduce using rule 18 (statement -> print_statement .)
+    PUT             reduce using rule 18 (statement -> print_statement .)
+    IDENTIFIER      reduce using rule 18 (statement -> print_statement .)
+    SEMICOLON       reduce using rule 18 (statement -> print_statement .)
+    DO              reduce using rule 18 (statement -> print_statement .)
+    WHILE           reduce using rule 18 (statement -> print_statement .)
+    FOR             reduce using rule 18 (statement -> print_statement .)
+    IF              reduce using rule 18 (statement -> print_statement .)
+    LEFT_BRACE      reduce using rule 18 (statement -> print_statement .)
+    LOG             reduce using rule 18 (statement -> print_statement .)
+    LET             reduce using rule 18 (statement -> print_statement .)
+    MINUS           reduce using rule 18 (statement -> print_statement .)
+    NOT             reduce using rule 18 (statement -> print_statement .)
+    TYPE_BOOL       reduce using rule 18 (statement -> print_statement .)
+    TYPE_INT        reduce using rule 18 (statement -> print_statement .)
+    TYPE_CHAR       reduce using rule 18 (statement -> print_statement .)
+    TYPE_DOUBLE     reduce using rule 18 (statement -> print_statement .)
+    TYPE_STRING     reduce using rule 18 (statement -> print_statement .)
+    LEFT_PAREN      reduce using rule 18 (statement -> print_statement .)
+    DOUBLE          reduce using rule 18 (statement -> print_statement .)
+    INTEGER         reduce using rule 18 (statement -> print_statement .)
+    STRING          reduce using rule 18 (statement -> print_statement .)
+    TRUE            reduce using rule 18 (statement -> print_statement .)
+    FALSE           reduce using rule 18 (statement -> print_statement .)
+    $end            reduce using rule 18 (statement -> print_statement .)
+    RIGHT_BRACE     reduce using rule 18 (statement -> print_statement .)
 
 
 state 13
 
-    (20) statement -> function_call .
+    (19) statement -> function_call .
 
-    FUNCTION        reduce using rule 20 (statement -> function_call .)
-    STRUCT          reduce using rule 20 (statement -> function_call .)
-    PUT             reduce using rule 20 (statement -> function_call .)
-    IDENTIFIER      reduce using rule 20 (statement -> function_call .)
-    SEMICOLON       reduce using rule 20 (statement -> function_call .)
-    DO              reduce using rule 20 (statement -> function_call .)
-    WHILE           reduce using rule 20 (statement -> function_call .)
-    FOR             reduce using rule 20 (statement -> function_call .)
-    IF              reduce using rule 20 (statement -> function_call .)
-    LEFT_BRACE      reduce using rule 20 (statement -> function_call .)
-    LOG             reduce using rule 20 (statement -> function_call .)
-    LET             reduce using rule 20 (statement -> function_call .)
-    MINUS           reduce using rule 20 (statement -> function_call .)
-    NOT             reduce using rule 20 (statement -> function_call .)
-    TYPE_BOOL       reduce using rule 20 (statement -> function_call .)
-    TYPE_INT        reduce using rule 20 (statement -> function_call .)
-    TYPE_CHAR       reduce using rule 20 (statement -> function_call .)
-    TYPE_DOUBLE     reduce using rule 20 (statement -> function_call .)
-    TYPE_STRING     reduce using rule 20 (statement -> function_call .)
-    LEFT_PAREN      reduce using rule 20 (statement -> function_call .)
-    DOUBLE          reduce using rule 20 (statement -> function_call .)
-    INTEGER         reduce using rule 20 (statement -> function_call .)
-    STRING          reduce using rule 20 (statement -> function_call .)
-    TRUE            reduce using rule 20 (statement -> function_call .)
-    FALSE           reduce using rule 20 (statement -> function_call .)
-    $end            reduce using rule 20 (statement -> function_call .)
-    RIGHT_BRACE     reduce using rule 20 (statement -> function_call .)
+    FUNCTION        reduce using rule 19 (statement -> function_call .)
+    STRUCT          reduce using rule 19 (statement -> function_call .)
+    PUT             reduce using rule 19 (statement -> function_call .)
+    IDENTIFIER      reduce using rule 19 (statement -> function_call .)
+    SEMICOLON       reduce using rule 19 (statement -> function_call .)
+    DO              reduce using rule 19 (statement -> function_call .)
+    WHILE           reduce using rule 19 (statement -> function_call .)
+    FOR             reduce using rule 19 (statement -> function_call .)
+    IF              reduce using rule 19 (statement -> function_call .)
+    LEFT_BRACE      reduce using rule 19 (statement -> function_call .)
+    LOG             reduce using rule 19 (statement -> function_call .)
+    LET             reduce using rule 19 (statement -> function_call .)
+    MINUS           reduce using rule 19 (statement -> function_call .)
+    NOT             reduce using rule 19 (statement -> function_call .)
+    TYPE_BOOL       reduce using rule 19 (statement -> function_call .)
+    TYPE_INT        reduce using rule 19 (statement -> function_call .)
+    TYPE_CHAR       reduce using rule 19 (statement -> function_call .)
+    TYPE_DOUBLE     reduce using rule 19 (statement -> function_call .)
+    TYPE_STRING     reduce using rule 19 (statement -> function_call .)
+    LEFT_PAREN      reduce using rule 19 (statement -> function_call .)
+    DOUBLE          reduce using rule 19 (statement -> function_call .)
+    INTEGER         reduce using rule 19 (statement -> function_call .)
+    STRING          reduce using rule 19 (statement -> function_call .)
+    TRUE            reduce using rule 19 (statement -> function_call .)
+    FALSE           reduce using rule 19 (statement -> function_call .)
+    $end            reduce using rule 19 (statement -> function_call .)
+    RIGHT_BRACE     reduce using rule 19 (statement -> function_call .)
 
 
 state 14
 
-    (21) statement -> variable_declaration .
+    (20) statement -> variable_declaration .
 
-    FUNCTION        reduce using rule 21 (statement -> variable_declaration .)
-    STRUCT          reduce using rule 21 (statement -> variable_declaration .)
-    PUT             reduce using rule 21 (statement -> variable_declaration .)
-    IDENTIFIER      reduce using rule 21 (statement -> variable_declaration .)
-    SEMICOLON       reduce using rule 21 (statement -> variable_declaration .)
-    DO              reduce using rule 21 (statement -> variable_declaration .)
-    WHILE           reduce using rule 21 (statement -> variable_declaration .)
-    FOR             reduce using rule 21 (statement -> variable_declaration .)
-    IF              reduce using rule 21 (statement -> variable_declaration .)
-    LEFT_BRACE      reduce using rule 21 (statement -> variable_declaration .)
-    LOG             reduce using rule 21 (statement -> variable_declaration .)
-    LET             reduce using rule 21 (statement -> variable_declaration .)
-    MINUS           reduce using rule 21 (statement -> variable_declaration .)
-    NOT             reduce using rule 21 (statement -> variable_declaration .)
-    TYPE_BOOL       reduce using rule 21 (statement -> variable_declaration .)
-    TYPE_INT        reduce using rule 21 (statement -> variable_declaration .)
-    TYPE_CHAR       reduce using rule 21 (statement -> variable_declaration .)
-    TYPE_DOUBLE     reduce using rule 21 (statement -> variable_declaration .)
-    TYPE_STRING     reduce using rule 21 (statement -> variable_declaration .)
-    LEFT_PAREN      reduce using rule 21 (statement -> variable_declaration .)
-    DOUBLE          reduce using rule 21 (statement -> variable_declaration .)
-    INTEGER         reduce using rule 21 (statement -> variable_declaration .)
-    STRING          reduce using rule 21 (statement -> variable_declaration .)
-    TRUE            reduce using rule 21 (statement -> variable_declaration .)
-    FALSE           reduce using rule 21 (statement -> variable_declaration .)
-    $end            reduce using rule 21 (statement -> variable_declaration .)
-    RIGHT_BRACE     reduce using rule 21 (statement -> variable_declaration .)
+    FUNCTION        reduce using rule 20 (statement -> variable_declaration .)
+    STRUCT          reduce using rule 20 (statement -> variable_declaration .)
+    PUT             reduce using rule 20 (statement -> variable_declaration .)
+    IDENTIFIER      reduce using rule 20 (statement -> variable_declaration .)
+    SEMICOLON       reduce using rule 20 (statement -> variable_declaration .)
+    DO              reduce using rule 20 (statement -> variable_declaration .)
+    WHILE           reduce using rule 20 (statement -> variable_declaration .)
+    FOR             reduce using rule 20 (statement -> variable_declaration .)
+    IF              reduce using rule 20 (statement -> variable_declaration .)
+    LEFT_BRACE      reduce using rule 20 (statement -> variable_declaration .)
+    LOG             reduce using rule 20 (statement -> variable_declaration .)
+    LET             reduce using rule 20 (statement -> variable_declaration .)
+    MINUS           reduce using rule 20 (statement -> variable_declaration .)
+    NOT             reduce using rule 20 (statement -> variable_declaration .)
+    TYPE_BOOL       reduce using rule 20 (statement -> variable_declaration .)
+    TYPE_INT        reduce using rule 20 (statement -> variable_declaration .)
+    TYPE_CHAR       reduce using rule 20 (statement -> variable_declaration .)
+    TYPE_DOUBLE     reduce using rule 20 (statement -> variable_declaration .)
+    TYPE_STRING     reduce using rule 20 (statement -> variable_declaration .)
+    LEFT_PAREN      reduce using rule 20 (statement -> variable_declaration .)
+    DOUBLE          reduce using rule 20 (statement -> variable_declaration .)
+    INTEGER         reduce using rule 20 (statement -> variable_declaration .)
+    STRING          reduce using rule 20 (statement -> variable_declaration .)
+    TRUE            reduce using rule 20 (statement -> variable_declaration .)
+    FALSE           reduce using rule 20 (statement -> variable_declaration .)
+    $end            reduce using rule 20 (statement -> variable_declaration .)
+    RIGHT_BRACE     reduce using rule 20 (statement -> variable_declaration .)
 
 
 state 15
@@ -1027,7 +1027,7 @@ state 16
 
     (42) assignment_statement -> IDENTIFIER . ASSIGN expression SEMICOLON
     (54) assignment_statement -> IDENTIFIER . DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (8) function_call -> IDENTIFIER . LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (7) function_call -> IDENTIFIER . LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> IDENTIFIER . LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (67) variable_declaration -> IDENTIFIER . IDENTIFIER SEMICOLON
     (33) expression -> IDENTIFIER . INCREMENT
@@ -1113,7 +1113,7 @@ state 17
 
 state 18
 
-    (10) struct_declaration -> STRUCT . IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
+    (9) struct_declaration -> STRUCT . IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE
 
     IDENTIFIER      shift and go to state 58
 
@@ -1121,24 +1121,24 @@ state 18
 state 19
 
     (27) compound_statement -> LEFT_BRACE . statement_list RIGHT_BRACE
-    (24) statement_list -> . statement statement_list
+    (23) statement_list -> . statement statement_list
     (48) statement_list -> . empty
-    (14) statement -> . assignment_statement
-    (15) statement -> . expression_statement
-    (16) statement -> . iterative_statement
-    (17) statement -> . conditional_statement
-    (18) statement -> . compound_statement
-    (19) statement -> . print_statement
-    (20) statement -> . function_call
-    (21) statement -> . variable_declaration
-    (6) empty -> .
+    (13) statement -> . assignment_statement
+    (14) statement -> . expression_statement
+    (15) statement -> . iterative_statement
+    (16) statement -> . conditional_statement
+    (17) statement -> . compound_statement
+    (18) statement -> . print_statement
+    (19) statement -> . function_call
+    (20) statement -> . variable_declaration
+    (25) empty -> .
     (26) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
     (42) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
     (54) assignment_statement -> . IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (12) expression_statement -> . expression SEMICOLON
-    (13) expression_statement -> . SEMICOLON
-    (22) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-    (23) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (11) expression_statement -> . expression SEMICOLON
+    (12) expression_statement -> . SEMICOLON
+    (21) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (22) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
     (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
     (40) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (41) iterative_statement -> . WHILE expression compound_statement
@@ -1151,12 +1151,12 @@ state 19
     (75) iterative_statement -> . FOR LEFT_PAREN variable_declaration expression SEMICOLON expression RIGHT_PAREN compound_statement
     (77) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON assignment_statement RIGHT_PAREN compound_statement
     (79) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON expression RIGHT_PAREN compound_statement
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (25) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-    (8) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (24) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (7) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
@@ -1201,7 +1201,7 @@ state 19
     (72) literal -> . TRUE
     (73) literal -> . FALSE
 
-    RIGHT_BRACE     reduce using rule 6 (empty -> .)
+    RIGHT_BRACE     reduce using rule 25 (empty -> .)
     PUT             shift and go to state 20
     IDENTIFIER      shift and go to state 16
     SEMICOLON       shift and go to state 22
@@ -1296,7 +1296,7 @@ state 20
 
 state 21
 
-    (12) expression_statement -> expression . SEMICOLON
+    (11) expression_statement -> expression . SEMICOLON
     (66) expression -> expression . NOT ASSIGN term
     (76) expression -> expression . EXP term
     (78) expression -> expression . GTE term
@@ -1329,40 +1329,40 @@ state 21
 
 state 22
 
-    (13) expression_statement -> SEMICOLON .
+    (12) expression_statement -> SEMICOLON .
 
-    FUNCTION        reduce using rule 13 (expression_statement -> SEMICOLON .)
-    STRUCT          reduce using rule 13 (expression_statement -> SEMICOLON .)
-    PUT             reduce using rule 13 (expression_statement -> SEMICOLON .)
-    IDENTIFIER      reduce using rule 13 (expression_statement -> SEMICOLON .)
-    SEMICOLON       reduce using rule 13 (expression_statement -> SEMICOLON .)
-    DO              reduce using rule 13 (expression_statement -> SEMICOLON .)
-    WHILE           reduce using rule 13 (expression_statement -> SEMICOLON .)
-    FOR             reduce using rule 13 (expression_statement -> SEMICOLON .)
-    IF              reduce using rule 13 (expression_statement -> SEMICOLON .)
-    LEFT_BRACE      reduce using rule 13 (expression_statement -> SEMICOLON .)
-    LOG             reduce using rule 13 (expression_statement -> SEMICOLON .)
-    LET             reduce using rule 13 (expression_statement -> SEMICOLON .)
-    MINUS           reduce using rule 13 (expression_statement -> SEMICOLON .)
-    NOT             reduce using rule 13 (expression_statement -> SEMICOLON .)
-    TYPE_BOOL       reduce using rule 13 (expression_statement -> SEMICOLON .)
-    TYPE_INT        reduce using rule 13 (expression_statement -> SEMICOLON .)
-    TYPE_CHAR       reduce using rule 13 (expression_statement -> SEMICOLON .)
-    TYPE_DOUBLE     reduce using rule 13 (expression_statement -> SEMICOLON .)
-    TYPE_STRING     reduce using rule 13 (expression_statement -> SEMICOLON .)
-    LEFT_PAREN      reduce using rule 13 (expression_statement -> SEMICOLON .)
-    DOUBLE          reduce using rule 13 (expression_statement -> SEMICOLON .)
-    INTEGER         reduce using rule 13 (expression_statement -> SEMICOLON .)
-    STRING          reduce using rule 13 (expression_statement -> SEMICOLON .)
-    TRUE            reduce using rule 13 (expression_statement -> SEMICOLON .)
-    FALSE           reduce using rule 13 (expression_statement -> SEMICOLON .)
-    $end            reduce using rule 13 (expression_statement -> SEMICOLON .)
-    RIGHT_BRACE     reduce using rule 13 (expression_statement -> SEMICOLON .)
+    FUNCTION        reduce using rule 12 (expression_statement -> SEMICOLON .)
+    STRUCT          reduce using rule 12 (expression_statement -> SEMICOLON .)
+    PUT             reduce using rule 12 (expression_statement -> SEMICOLON .)
+    IDENTIFIER      reduce using rule 12 (expression_statement -> SEMICOLON .)
+    SEMICOLON       reduce using rule 12 (expression_statement -> SEMICOLON .)
+    DO              reduce using rule 12 (expression_statement -> SEMICOLON .)
+    WHILE           reduce using rule 12 (expression_statement -> SEMICOLON .)
+    FOR             reduce using rule 12 (expression_statement -> SEMICOLON .)
+    IF              reduce using rule 12 (expression_statement -> SEMICOLON .)
+    LEFT_BRACE      reduce using rule 12 (expression_statement -> SEMICOLON .)
+    LOG             reduce using rule 12 (expression_statement -> SEMICOLON .)
+    LET             reduce using rule 12 (expression_statement -> SEMICOLON .)
+    MINUS           reduce using rule 12 (expression_statement -> SEMICOLON .)
+    NOT             reduce using rule 12 (expression_statement -> SEMICOLON .)
+    TYPE_BOOL       reduce using rule 12 (expression_statement -> SEMICOLON .)
+    TYPE_INT        reduce using rule 12 (expression_statement -> SEMICOLON .)
+    TYPE_CHAR       reduce using rule 12 (expression_statement -> SEMICOLON .)
+    TYPE_DOUBLE     reduce using rule 12 (expression_statement -> SEMICOLON .)
+    TYPE_STRING     reduce using rule 12 (expression_statement -> SEMICOLON .)
+    LEFT_PAREN      reduce using rule 12 (expression_statement -> SEMICOLON .)
+    DOUBLE          reduce using rule 12 (expression_statement -> SEMICOLON .)
+    INTEGER         reduce using rule 12 (expression_statement -> SEMICOLON .)
+    STRING          reduce using rule 12 (expression_statement -> SEMICOLON .)
+    TRUE            reduce using rule 12 (expression_statement -> SEMICOLON .)
+    FALSE           reduce using rule 12 (expression_statement -> SEMICOLON .)
+    $end            reduce using rule 12 (expression_statement -> SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 12 (expression_statement -> SEMICOLON .)
 
 
 state 23
 
-    (22) iterative_statement -> DO . compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (21) iterative_statement -> DO . compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
     (40) iterative_statement -> DO . compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (53) iterative_statement -> DO . compound_statement WHILE expression
     (61) iterative_statement -> DO . compound_statement WHILE expression SEMICOLON
@@ -1374,7 +1374,7 @@ state 23
 
 state 24
 
-    (23) iterative_statement -> WHILE . LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (22) iterative_statement -> WHILE . LEFT_PAREN expression RIGHT_PAREN compound_statement
     (41) iterative_statement -> WHILE . expression compound_statement
     (33) expression -> . IDENTIFIER INCREMENT
     (49) expression -> . IDENTIFIER DECREMENT
@@ -1484,7 +1484,7 @@ state 25
 
 state 26
 
-    (9) conditional_statement -> IF . LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> IF . LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> IF . LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> IF . LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
 
@@ -1493,7 +1493,7 @@ state 26
 
 state 27
 
-    (25) print_statement -> LOG . LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (24) print_statement -> LOG . LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
 
     LEFT_PAREN      shift and go to state 82
 
@@ -2106,9 +2106,9 @@ state 51
 
 state 52
 
-    (8) function_call -> IDENTIFIER LEFT_PAREN . RIGHT_PAREN SEMICOLON
+    (7) function_call -> IDENTIFIER LEFT_PAREN . RIGHT_PAREN SEMICOLON
     (37) function_call -> IDENTIFIER LEFT_PAREN . arguments RIGHT_PAREN SEMICOLON
-    (7) arguments -> . expression COMMA arguments
+    (6) arguments -> . expression COMMA arguments
     (36) arguments -> . expression
     (33) expression -> . IDENTIFIER INCREMENT
     (49) expression -> . IDENTIFIER DECREMENT
@@ -2356,7 +2356,7 @@ state 57
 
 state 58
 
-    (10) struct_declaration -> STRUCT IDENTIFIER . LEFT_BRACE variable_declaration_list RIGHT_BRACE
+    (9) struct_declaration -> STRUCT IDENTIFIER . LEFT_BRACE variable_declaration_list RIGHT_BRACE
 
     LEFT_BRACE      shift and go to state 100
 
@@ -2370,25 +2370,25 @@ state 59
 
 state 60
 
-    (24) statement_list -> statement . statement_list
-    (24) statement_list -> . statement statement_list
+    (23) statement_list -> statement . statement_list
+    (23) statement_list -> . statement statement_list
     (48) statement_list -> . empty
-    (14) statement -> . assignment_statement
-    (15) statement -> . expression_statement
-    (16) statement -> . iterative_statement
-    (17) statement -> . conditional_statement
-    (18) statement -> . compound_statement
-    (19) statement -> . print_statement
-    (20) statement -> . function_call
-    (21) statement -> . variable_declaration
-    (6) empty -> .
+    (13) statement -> . assignment_statement
+    (14) statement -> . expression_statement
+    (15) statement -> . iterative_statement
+    (16) statement -> . conditional_statement
+    (17) statement -> . compound_statement
+    (18) statement -> . print_statement
+    (19) statement -> . function_call
+    (20) statement -> . variable_declaration
+    (25) empty -> .
     (26) assignment_statement -> . PUT expression IN IDENTIFIER SEMICOLON
     (42) assignment_statement -> . IDENTIFIER ASSIGN expression SEMICOLON
     (54) assignment_statement -> . IDENTIFIER DOT IDENTIFIER ASSIGN expression SEMICOLON
-    (12) expression_statement -> . expression SEMICOLON
-    (13) expression_statement -> . SEMICOLON
-    (22) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
-    (23) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
+    (11) expression_statement -> . expression SEMICOLON
+    (12) expression_statement -> . SEMICOLON
+    (21) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN
+    (22) iterative_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement
     (31) iterative_statement -> . FOR LEFT_PAREN expression TO expression RIGHT_PAREN compound_statement
     (40) iterative_statement -> . DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (41) iterative_statement -> . WHILE expression compound_statement
@@ -2401,12 +2401,12 @@ state 60
     (75) iterative_statement -> . FOR LEFT_PAREN variable_declaration expression SEMICOLON expression RIGHT_PAREN compound_statement
     (77) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON assignment_statement RIGHT_PAREN compound_statement
     (79) iterative_statement -> . FOR LEFT_PAREN expression SEMICOLON expression SEMICOLON expression RIGHT_PAREN compound_statement
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (25) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
-    (8) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
+    (24) print_statement -> . LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
+    (7) function_call -> . IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON
     (37) function_call -> . IDENTIFIER LEFT_PAREN arguments RIGHT_PAREN SEMICOLON
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
@@ -2451,7 +2451,7 @@ state 60
     (72) literal -> . TRUE
     (73) literal -> . FALSE
 
-    RIGHT_BRACE     reduce using rule 6 (empty -> .)
+    RIGHT_BRACE     reduce using rule 25 (empty -> .)
     PUT             shift and go to state 20
     IDENTIFIER      shift and go to state 16
     SEMICOLON       shift and go to state 22
@@ -2535,35 +2535,35 @@ state 62
 
 state 63
 
-    (12) expression_statement -> expression SEMICOLON .
+    (11) expression_statement -> expression SEMICOLON .
 
-    FUNCTION        reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    STRUCT          reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    PUT             reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    IDENTIFIER      reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    SEMICOLON       reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    DO              reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    WHILE           reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    FOR             reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    IF              reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    LEFT_BRACE      reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    LOG             reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    LET             reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    MINUS           reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    NOT             reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    TYPE_BOOL       reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    TYPE_INT        reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    TYPE_CHAR       reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    TYPE_DOUBLE     reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    TYPE_STRING     reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    LEFT_PAREN      reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    DOUBLE          reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    INTEGER         reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    STRING          reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    TRUE            reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    FALSE           reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    $end            reduce using rule 12 (expression_statement -> expression SEMICOLON .)
-    RIGHT_BRACE     reduce using rule 12 (expression_statement -> expression SEMICOLON .)
+    FUNCTION        reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    STRUCT          reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    PUT             reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    SEMICOLON       reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    DO              reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    FOR             reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    IF              reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    LEFT_BRACE      reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    LOG             reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    LET             reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    MINUS           reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    NOT             reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    TYPE_BOOL       reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    TYPE_INT        reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    TYPE_CHAR       reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    TYPE_DOUBLE     reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    TYPE_STRING     reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    LEFT_PAREN      reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    DOUBLE          reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    INTEGER         reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    STRING          reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    TRUE            reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    FALSE           reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    $end            reduce using rule 11 (expression_statement -> expression SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 11 (expression_statement -> expression SEMICOLON .)
 
 
 state 64
@@ -2898,7 +2898,7 @@ state 75
 
 state 76
 
-    (22) iterative_statement -> DO compound_statement . WHILE LEFT_PAREN expression RIGHT_PAREN
+    (21) iterative_statement -> DO compound_statement . WHILE LEFT_PAREN expression RIGHT_PAREN
     (40) iterative_statement -> DO compound_statement . WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (53) iterative_statement -> DO compound_statement . WHILE expression
     (61) iterative_statement -> DO compound_statement . WHILE expression SEMICOLON
@@ -2908,7 +2908,7 @@ state 76
 
 state 77
 
-    (23) iterative_statement -> WHILE LEFT_PAREN . expression RIGHT_PAREN compound_statement
+    (22) iterative_statement -> WHILE LEFT_PAREN . expression RIGHT_PAREN compound_statement
     (50) factor -> LEFT_PAREN . expression RIGHT_PAREN
     (33) expression -> . IDENTIFIER INCREMENT
     (49) expression -> . IDENTIFIER DECREMENT
@@ -3104,7 +3104,7 @@ state 80
 
 state 81
 
-    (9) conditional_statement -> IF LEFT_PAREN . expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> IF LEFT_PAREN . expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> IF LEFT_PAREN . expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> IF LEFT_PAREN . expression RIGHT_PAREN compound_statement ELSE conditional_statement
     (33) expression -> . IDENTIFIER INCREMENT
@@ -3157,8 +3157,8 @@ state 81
 
 state 82
 
-    (25) print_statement -> LOG LEFT_PAREN . arguments RIGHT_PAREN SEMICOLON
-    (7) arguments -> . expression COMMA arguments
+    (24) print_statement -> LOG LEFT_PAREN . arguments RIGHT_PAREN SEMICOLON
+    (6) arguments -> . expression COMMA arguments
     (36) arguments -> . expression
     (33) expression -> . IDENTIFIER INCREMENT
     (49) expression -> . IDENTIFIER DECREMENT
@@ -3439,7 +3439,7 @@ state 90
 
     (28) function_declaration -> FUNCTION IDENTIFIER LEFT_PAREN . arguments RIGHT_PAREN compound_statement
     (47) function_declaration -> FUNCTION IDENTIFIER LEFT_PAREN . RIGHT_PAREN compound_statement
-    (7) arguments -> . expression COMMA arguments
+    (6) arguments -> . expression COMMA arguments
     (36) arguments -> . expression
     (33) expression -> . IDENTIFIER INCREMENT
     (49) expression -> . IDENTIFIER DECREMENT
@@ -3583,7 +3583,7 @@ state 93
 
 state 94
 
-    (8) function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN . SEMICOLON
+    (7) function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN . SEMICOLON
 
     SEMICOLON       shift and go to state 137
 
@@ -3597,7 +3597,7 @@ state 95
 
 state 96
 
-    (7) arguments -> expression . COMMA arguments
+    (6) arguments -> expression . COMMA arguments
     (36) arguments -> expression .
     (66) expression -> expression . NOT ASSIGN term
     (76) expression -> expression . EXP term
@@ -3696,15 +3696,15 @@ state 99
 
 state 100
 
-    (10) struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE . variable_declaration_list RIGHT_BRACE
-    (11) variable_declaration_list -> . variable_declaration variable_declaration_list
+    (9) struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE . variable_declaration_list RIGHT_BRACE
+    (10) variable_declaration_list -> . variable_declaration variable_declaration_list
     (39) variable_declaration_list -> . empty
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
     (56) variable_declaration -> . type_specifier IDENTIFIER SEMICOLON
     (63) variable_declaration -> . LET IDENTIFIER SEMICOLON
     (67) variable_declaration -> . IDENTIFIER IDENTIFIER SEMICOLON
-    (6) empty -> .
+    (25) empty -> .
     (1) type_specifier -> . TYPE_BOOL
     (2) type_specifier -> . TYPE_INT
     (3) type_specifier -> . TYPE_CHAR
@@ -3713,7 +3713,7 @@ state 100
 
     LET             shift and go to state 28
     IDENTIFIER      shift and go to state 142
-    RIGHT_BRACE     reduce using rule 6 (empty -> .)
+    RIGHT_BRACE     reduce using rule 25 (empty -> .)
     TYPE_BOOL       shift and go to state 33
     TYPE_INT        shift and go to state 34
     TYPE_CHAR       shift and go to state 35
@@ -3761,9 +3761,9 @@ state 101
 
 state 102
 
-    (24) statement_list -> statement statement_list .
+    (23) statement_list -> statement statement_list .
 
-    RIGHT_BRACE     reduce using rule 24 (statement_list -> statement statement_list .)
+    RIGHT_BRACE     reduce using rule 23 (statement_list -> statement statement_list .)
 
 
 state 103
@@ -4390,7 +4390,7 @@ state 117
 
 state 118
 
-    (22) iterative_statement -> DO compound_statement WHILE . LEFT_PAREN expression RIGHT_PAREN
+    (21) iterative_statement -> DO compound_statement WHILE . LEFT_PAREN expression RIGHT_PAREN
     (40) iterative_statement -> DO compound_statement WHILE . LEFT_PAREN expression RIGHT_PAREN SEMICOLON
     (53) iterative_statement -> DO compound_statement WHILE . expression
     (61) iterative_statement -> DO compound_statement WHILE . expression SEMICOLON
@@ -4444,7 +4444,7 @@ state 118
 
 state 119
 
-    (23) iterative_statement -> WHILE LEFT_PAREN expression . RIGHT_PAREN compound_statement
+    (22) iterative_statement -> WHILE LEFT_PAREN expression . RIGHT_PAREN compound_statement
     (50) factor -> LEFT_PAREN expression . RIGHT_PAREN
     (66) expression -> expression . NOT ASSIGN term
     (76) expression -> expression . EXP term
@@ -4687,7 +4687,7 @@ state 124
 
 state 125
 
-    (9) conditional_statement -> IF LEFT_PAREN expression . RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> IF LEFT_PAREN expression . RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> IF LEFT_PAREN expression . RIGHT_PAREN compound_statement
     (52) conditional_statement -> IF LEFT_PAREN expression . RIGHT_PAREN compound_statement ELSE conditional_statement
     (66) expression -> expression . NOT ASSIGN term
@@ -4722,7 +4722,7 @@ state 125
 
 state 126
 
-    (25) print_statement -> LOG LEFT_PAREN arguments . RIGHT_PAREN SEMICOLON
+    (24) print_statement -> LOG LEFT_PAREN arguments . RIGHT_PAREN SEMICOLON
 
     RIGHT_PAREN     shift and go to state 158
 
@@ -5098,35 +5098,35 @@ state 136
 
 state 137
 
-    (8) function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .
+    (7) function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .
 
-    FUNCTION        reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    STRUCT          reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    PUT             reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    IDENTIFIER      reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    SEMICOLON       reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    DO              reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    WHILE           reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    FOR             reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    IF              reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    LEFT_BRACE      reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    LOG             reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    LET             reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    MINUS           reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    NOT             reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    TYPE_BOOL       reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    TYPE_INT        reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    TYPE_CHAR       reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    TYPE_DOUBLE     reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    TYPE_STRING     reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    LEFT_PAREN      reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    DOUBLE          reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    INTEGER         reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    STRING          reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    TRUE            reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    FALSE           reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    $end            reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
-    RIGHT_BRACE     reduce using rule 8 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    FUNCTION        reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    STRUCT          reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    PUT             reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    SEMICOLON       reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    DO              reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    WHILE           reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    FOR             reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    IF              reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LEFT_BRACE      reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LOG             reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LET             reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    MINUS           reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    NOT             reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    TYPE_BOOL       reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    TYPE_INT        reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    TYPE_CHAR       reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    TYPE_DOUBLE     reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    TYPE_STRING     reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    LEFT_PAREN      reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    DOUBLE          reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    INTEGER         reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    STRING          reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    TRUE            reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    FALSE           reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    $end            reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 7 (function_call -> IDENTIFIER LEFT_PAREN RIGHT_PAREN SEMICOLON .)
 
 
 state 138
@@ -5138,8 +5138,8 @@ state 138
 
 state 139
 
-    (7) arguments -> expression COMMA . arguments
-    (7) arguments -> . expression COMMA arguments
+    (6) arguments -> expression COMMA . arguments
+    (6) arguments -> . expression COMMA arguments
     (36) arguments -> . expression
     (33) expression -> . IDENTIFIER INCREMENT
     (49) expression -> . IDENTIFIER DECREMENT
@@ -5256,22 +5256,22 @@ state 142
 
 state 143
 
-    (10) struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list . RIGHT_BRACE
+    (9) struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list . RIGHT_BRACE
 
     RIGHT_BRACE     shift and go to state 167
 
 
 state 144
 
-    (11) variable_declaration_list -> variable_declaration . variable_declaration_list
-    (11) variable_declaration_list -> . variable_declaration variable_declaration_list
+    (10) variable_declaration_list -> variable_declaration . variable_declaration_list
+    (10) variable_declaration_list -> . variable_declaration variable_declaration_list
     (39) variable_declaration_list -> . empty
     (30) variable_declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
     (44) variable_declaration -> . type_specifier IDENTIFIER ASSIGN expression SEMICOLON
     (56) variable_declaration -> . type_specifier IDENTIFIER SEMICOLON
     (63) variable_declaration -> . LET IDENTIFIER SEMICOLON
     (67) variable_declaration -> . IDENTIFIER IDENTIFIER SEMICOLON
-    (6) empty -> .
+    (25) empty -> .
     (1) type_specifier -> . TYPE_BOOL
     (2) type_specifier -> . TYPE_INT
     (3) type_specifier -> . TYPE_CHAR
@@ -5280,7 +5280,7 @@ state 144
 
     LET             shift and go to state 28
     IDENTIFIER      shift and go to state 142
-    RIGHT_BRACE     reduce using rule 6 (empty -> .)
+    RIGHT_BRACE     reduce using rule 25 (empty -> .)
     TYPE_BOOL       shift and go to state 33
     TYPE_INT        shift and go to state 34
     TYPE_CHAR       shift and go to state 35
@@ -5418,7 +5418,7 @@ state 149
 
 state 150
 
-    (22) iterative_statement -> DO compound_statement WHILE LEFT_PAREN . expression RIGHT_PAREN
+    (21) iterative_statement -> DO compound_statement WHILE LEFT_PAREN . expression RIGHT_PAREN
     (40) iterative_statement -> DO compound_statement WHILE LEFT_PAREN . expression RIGHT_PAREN SEMICOLON
     (50) factor -> LEFT_PAREN . expression RIGHT_PAREN
     (33) expression -> . IDENTIFIER INCREMENT
@@ -5536,7 +5536,7 @@ state 151
 
 state 152
 
-    (23) iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN . compound_statement
+    (22) iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN . compound_statement
     (50) factor -> LEFT_PAREN expression RIGHT_PAREN .
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
 
@@ -5738,7 +5738,7 @@ state 156
 
 state 157
 
-    (9) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN . compound_statement ELSE compound_statement
+    (8) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN . compound_statement ELSE compound_statement
     (38) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN . compound_statement
     (52) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN . compound_statement ELSE conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
@@ -5749,7 +5749,7 @@ state 157
 
 state 158
 
-    (25) print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN . SEMICOLON
+    (24) print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN . SEMICOLON
 
     SEMICOLON       shift and go to state 181
 
@@ -5929,9 +5929,9 @@ state 164
 
 state 165
 
-    (7) arguments -> expression COMMA arguments .
+    (6) arguments -> expression COMMA arguments .
 
-    RIGHT_PAREN     reduce using rule 7 (arguments -> expression COMMA arguments .)
+    RIGHT_PAREN     reduce using rule 6 (arguments -> expression COMMA arguments .)
 
 
 state 166
@@ -5943,41 +5943,41 @@ state 166
 
 state 167
 
-    (10) struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .
+    (9) struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .
 
-    FUNCTION        reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    STRUCT          reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    PUT             reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    IDENTIFIER      reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    SEMICOLON       reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    DO              reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    WHILE           reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    FOR             reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    IF              reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    LEFT_BRACE      reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    LOG             reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    LET             reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    MINUS           reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    NOT             reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    TYPE_BOOL       reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    TYPE_INT        reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    TYPE_CHAR       reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    TYPE_DOUBLE     reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    TYPE_STRING     reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    LEFT_PAREN      reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    DOUBLE          reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    INTEGER         reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    STRING          reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    TRUE            reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    FALSE           reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
-    $end            reduce using rule 10 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    FUNCTION        reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    STRUCT          reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    PUT             reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    IDENTIFIER      reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    SEMICOLON       reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    DO              reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    WHILE           reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    FOR             reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    IF              reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    LEFT_BRACE      reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    LOG             reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    LET             reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    MINUS           reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    NOT             reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    TYPE_BOOL       reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    TYPE_INT        reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    TYPE_CHAR       reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    TYPE_DOUBLE     reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    TYPE_STRING     reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    LEFT_PAREN      reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    DOUBLE          reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    INTEGER         reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    STRING          reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    TRUE            reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    FALSE           reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
+    $end            reduce using rule 9 (struct_declaration -> STRUCT IDENTIFIER LEFT_BRACE variable_declaration_list RIGHT_BRACE .)
 
 
 state 168
 
-    (11) variable_declaration_list -> variable_declaration variable_declaration_list .
+    (10) variable_declaration_list -> variable_declaration variable_declaration_list .
 
-    RIGHT_BRACE     reduce using rule 11 (variable_declaration_list -> variable_declaration variable_declaration_list .)
+    RIGHT_BRACE     reduce using rule 10 (variable_declaration_list -> variable_declaration variable_declaration_list .)
 
 
 state 169
@@ -6120,7 +6120,7 @@ state 171
 
 state 172
 
-    (22) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression . RIGHT_PAREN
+    (21) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression . RIGHT_PAREN
     (40) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression . RIGHT_PAREN SEMICOLON
     (50) factor -> LEFT_PAREN expression . RIGHT_PAREN
     (66) expression -> expression . NOT ASSIGN term
@@ -6188,35 +6188,35 @@ state 173
 
 state 174
 
-    (23) iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .
+    (22) iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .
 
-    FUNCTION        reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    STRUCT          reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    PUT             reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    IDENTIFIER      reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    SEMICOLON       reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    DO              reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    WHILE           reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    FOR             reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    IF              reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    LEFT_BRACE      reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    LOG             reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    LET             reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    MINUS           reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    NOT             reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    TYPE_BOOL       reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    TYPE_INT        reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    TYPE_CHAR       reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    TYPE_DOUBLE     reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    TYPE_STRING     reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    LEFT_PAREN      reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    DOUBLE          reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    INTEGER         reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    STRING          reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    TRUE            reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    FALSE           reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    $end            reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
-    RIGHT_BRACE     reduce using rule 23 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FUNCTION        reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    STRUCT          reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    PUT             reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    IDENTIFIER      reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    SEMICOLON       reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    DO              reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    WHILE           reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FOR             reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    IF              reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LEFT_BRACE      reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LOG             reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LET             reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    MINUS           reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    NOT             reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    TYPE_BOOL       reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    TYPE_INT        reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    TYPE_CHAR       reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    TYPE_DOUBLE     reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    TYPE_STRING     reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    LEFT_PAREN      reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    DOUBLE          reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    INTEGER         reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    STRING          reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    TRUE            reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    FALSE           reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    $end            reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
+    RIGHT_BRACE     reduce using rule 22 (iterative_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN compound_statement .)
 
 
 state 175
@@ -6431,7 +6431,7 @@ state 179
 
 state 180
 
-    (9) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement . ELSE compound_statement
+    (8) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement . ELSE compound_statement
     (38) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement .
     (52) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement . ELSE conditional_statement
 
@@ -6467,35 +6467,35 @@ state 180
 
 state 181
 
-    (25) print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .
+    (24) print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .
 
-    FUNCTION        reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    STRUCT          reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    PUT             reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    IDENTIFIER      reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    SEMICOLON       reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    DO              reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    WHILE           reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    FOR             reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    IF              reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    LEFT_BRACE      reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    LOG             reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    LET             reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    MINUS           reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    NOT             reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    TYPE_BOOL       reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    TYPE_INT        reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    TYPE_CHAR       reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    TYPE_DOUBLE     reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    TYPE_STRING     reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    LEFT_PAREN      reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    DOUBLE          reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    INTEGER         reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    STRING          reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    TRUE            reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    FALSE           reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    $end            reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
-    RIGHT_BRACE     reduce using rule 25 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FUNCTION        reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    STRUCT          reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    PUT             reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    SEMICOLON       reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    DO              reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    WHILE           reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FOR             reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    IF              reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LEFT_BRACE      reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LOG             reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LET             reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    MINUS           reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    NOT             reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    TYPE_BOOL       reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    TYPE_INT        reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    TYPE_CHAR       reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    TYPE_DOUBLE     reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    TYPE_STRING     reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    LEFT_PAREN      reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    DOUBLE          reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    INTEGER         reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    STRING          reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    TRUE            reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    FALSE           reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    $end            reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 24 (print_statement -> LOG LEFT_PAREN arguments RIGHT_PAREN SEMICOLON .)
 
 
 state 182
@@ -6682,64 +6682,64 @@ state 186
 
 state 187
 
-    (22) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .
+    (21) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .
     (40) iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN . SEMICOLON
     (50) factor -> LEFT_PAREN expression RIGHT_PAREN .
 
   ! shift/reduce conflict for SEMICOLON resolved as shift
   ! shift/reduce conflict for SEMICOLON resolved as shift
-  ! reduce/reduce conflict for NOT resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for MINUS resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for FUNCTION resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for STRUCT resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for PUT resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for IDENTIFIER resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for DO resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for WHILE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for FOR resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for IF resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for LEFT_BRACE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for LOG resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for LET resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for TYPE_BOOL resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for TYPE_INT resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for TYPE_CHAR resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for TYPE_DOUBLE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for TYPE_STRING resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for LEFT_PAREN resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for DOUBLE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for INTEGER resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for STRING resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for TRUE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for FALSE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for $end resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-  ! reduce/reduce conflict for RIGHT_BRACE resolved using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    FUNCTION        reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    STRUCT          reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    PUT             reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    IDENTIFIER      reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    DO              reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    WHILE           reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    FOR             reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    IF              reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    LEFT_BRACE      reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    LOG             reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    LET             reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    MINUS           reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    NOT             reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    TYPE_BOOL       reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    TYPE_INT        reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    TYPE_CHAR       reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    TYPE_DOUBLE     reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    TYPE_STRING     reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    LEFT_PAREN      reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    DOUBLE          reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    INTEGER         reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    STRING          reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    TRUE            reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    FALSE           reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    $end            reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
-    RIGHT_BRACE     reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for NOT resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for MINUS resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for FUNCTION resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for STRUCT resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for PUT resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for IDENTIFIER resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for DO resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for WHILE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for FOR resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for IF resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for LEFT_BRACE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for LOG resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for LET resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for TYPE_BOOL resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for TYPE_INT resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for TYPE_CHAR resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for TYPE_DOUBLE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for TYPE_STRING resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for LEFT_PAREN resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for DOUBLE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for INTEGER resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for STRING resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for TRUE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for FALSE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for $end resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+  ! reduce/reduce conflict for RIGHT_BRACE resolved using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    FUNCTION        reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    STRUCT          reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    PUT             reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    IDENTIFIER      reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    DO              reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    WHILE           reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    FOR             reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    IF              reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LEFT_BRACE      reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LOG             reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LET             reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    MINUS           reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    NOT             reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    TYPE_BOOL       reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    TYPE_INT        reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    TYPE_CHAR       reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    TYPE_DOUBLE     reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    TYPE_STRING     reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    LEFT_PAREN      reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    DOUBLE          reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    INTEGER         reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    STRING          reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    TRUE            reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    FALSE           reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    $end            reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
+    RIGHT_BRACE     reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .)
     SEMICOLON       shift and go to state 196
     PRODUCT         reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
     DIVIDE          reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
@@ -6754,7 +6754,7 @@ state 187
     AND             reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
     PLUS            reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .)
 
-  ! SEMICOLON       [ reduce using rule 22 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .) ]
+  ! SEMICOLON       [ reduce using rule 21 (iterative_statement -> DO compound_statement WHILE LEFT_PAREN expression RIGHT_PAREN .) ]
   ! SEMICOLON       [ reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .) ]
   ! NOT             [ reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .) ]
   ! MINUS           [ reduce using rule 50 (factor -> LEFT_PAREN expression RIGHT_PAREN .) ]
@@ -7010,10 +7010,10 @@ state 194
 
 state 195
 
-    (9) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE . compound_statement
+    (8) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE . compound_statement
     (52) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE . conditional_statement
     (27) compound_statement -> . LEFT_BRACE statement_list RIGHT_BRACE
-    (9) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
+    (8) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement
     (38) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement
     (52) conditional_statement -> . IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE conditional_statement
 
@@ -7215,35 +7215,35 @@ state 203
 
 state 204
 
-    (9) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .
+    (8) conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .
 
-    FUNCTION        reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    STRUCT          reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    PUT             reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    IDENTIFIER      reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    SEMICOLON       reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    DO              reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    WHILE           reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    FOR             reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    IF              reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    LEFT_BRACE      reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    LOG             reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    LET             reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    MINUS           reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    NOT             reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    TYPE_BOOL       reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    TYPE_INT        reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    TYPE_CHAR       reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    TYPE_DOUBLE     reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    TYPE_STRING     reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    LEFT_PAREN      reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    DOUBLE          reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    INTEGER         reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    STRING          reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    TRUE            reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    FALSE           reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    $end            reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
-    RIGHT_BRACE     reduce using rule 9 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    FUNCTION        reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    STRUCT          reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    PUT             reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    IDENTIFIER      reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    SEMICOLON       reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    DO              reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    WHILE           reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    FOR             reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    IF              reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LEFT_BRACE      reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LOG             reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LET             reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    MINUS           reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    NOT             reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    TYPE_BOOL       reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    TYPE_INT        reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    TYPE_CHAR       reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    TYPE_DOUBLE     reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    TYPE_STRING     reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    LEFT_PAREN      reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    DOUBLE          reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    INTEGER         reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    STRING          reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    TRUE            reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    FALSE           reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    $end            reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
+    RIGHT_BRACE     reduce using rule 8 (conditional_statement -> IF LEFT_PAREN expression RIGHT_PAREN compound_statement ELSE compound_statement .)
 
 
 state 205

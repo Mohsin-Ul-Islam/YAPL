@@ -1,7 +1,6 @@
 class Node:
-
-    def __init__(self,statement):
+    def __init__(self, statement):
         self.statement = statement
 
-    def visit(self,context):
+    def visit(self, context):
         return self.statement.visit(context)

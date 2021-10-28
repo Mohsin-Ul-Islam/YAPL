@@ -1,9 +1,8 @@
 class Node:
-
-    def __init__(self,name,body,arguments=None):
-        self.name      = name
+    def __init__(self, name, body, arguments=None):
+        self.name = name
         self.arguments = arguments
-        self.body      = body
+        self.body = body
 
-    def visit(self,context=None):
+    def visit(self, context=None):
         return self.body.visit(context)

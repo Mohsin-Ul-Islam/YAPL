@@ -1,10 +1,9 @@
 class Node:
-
-    def __init__(self,name,arguments = None):
-        self.name      = name
+    def __init__(self, name, arguments=None):
+        self.name = name
         self.arguments = arguments
 
-    def visit(self,context=None):
+    def visit(self, context=None):
         if not routines[self.name]:
             return False
         elif self.arguments:

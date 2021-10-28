@@ -1,6 +1,5 @@
 class ProgramContainer:
-
-    def __init__(self,table,scope):
+    def __init__(self, table, scope):
         self.table = table
         self.scope = scope
 
